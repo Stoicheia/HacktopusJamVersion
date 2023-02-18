@@ -16,6 +16,8 @@ namespace Minigame
                 _backScreen.gameObject.SetActive(_isFree);
             }
         }
+
+        [SerializeField] public float UniversalScale;
         [SerializeField] public SkewedImage UI;
         [SerializeField] public Transform Game;
         [SerializeField] public SkewedImage Progress;

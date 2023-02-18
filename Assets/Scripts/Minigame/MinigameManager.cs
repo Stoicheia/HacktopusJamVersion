@@ -14,6 +14,7 @@ namespace Minigame
         [SerializeField] private Camera _camera;
 
         private Dictionary<Minigame, bool> _gameCompleted;
+        private Dictionary<Minigame, bool> _gameLoaded;
         private Dictionary<Minigame, GameLayout> _gameToLayout;
         public Dictionary<Minigame, bool> GameCompleted => _gameCompleted;
         public int MinigamesCompleted => GameCompleted.Count(x => x.Value);
@@ -27,10 +28,12 @@ namespace Minigame
         private void OnEnable()
         {
             _gameCompleted = new Dictionary<Minigame, bool>();
+            _gameLoaded = new Dictionary<Minigame, bool>();
             _gameToLayout = new Dictionary<Minigame, GameLayout>();
             foreach (var g in _gamePrefabs)
             {
                 _gameCompleted[g] = false;
+                _gameLoaded[g] = false;
             }
 
             foreach (var l in _layouts)
@@ -100,6 +103,7 @@ namespace Minigame
             gl.IsFree = false;
             gameInstance.Prefab = game;
             _gameToLayout[gameInstance] = gl;
+            _gameLoaded[game] = true;
         }
 
         private void UnloadGame(Minigame gameInstance)
@@ -107,11 +111,12 @@ namespace Minigame
             _gameToLayout[gameInstance].IsFree = true;
             _gameToLayout.Remove(gameInstance);
             Destroy(gameInstance.gameObject);
+            _gameLoaded[gameInstance.Prefab] = false;
         }
 
         private Minigame GetRandomUnfinishedGame()
         {
-            List<Minigame> unfinished = _gameCompleted.Where(x => !x.Value)
+            List<Minigame> unfinished = _gameCompleted.Where(x => !x.Value && !_gameLoaded[x.Key])
                 .Select(x => x.Key).ToList();
             if (unfinished.Count == 0) return null;
             int rng = Random.Range(0, unfinished.Count);

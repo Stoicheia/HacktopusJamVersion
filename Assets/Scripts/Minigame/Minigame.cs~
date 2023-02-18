@@ -59,7 +59,7 @@ namespace Minigame
             CopyScale(_progressBar.transform, layout.Progress.transform);
             foreach (var i in _allGameplayElements)
             {
-                SetScale(i, layout.UniversalScale);
+                SetScale(i.rectTransform, layout.UniversalScale);
             }
         }
 

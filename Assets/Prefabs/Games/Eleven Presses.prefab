@@ -229,6 +229,10 @@ PrefabInstance:
       propertyPath: _allGameplayElements.Array.data[2]
       value: 
       objectReference: {fileID: 2784001263863299660}
+    - target: {fileID: 1355911947, guid: a899f51855d62014697dbcd8d647af76, type: 3}
+      propertyPath: _targetPresses
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1677402684554235396, guid: a899f51855d62014697dbcd8d647af76, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -275,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1677402684554235397, guid: a899f51855d62014697dbcd8d647af76, type: 3}
       propertyPath: m_Name
-      value: Ten Presses Variant
+      value: Eleven Presses
       objectReference: {fileID: 0}
     - target: {fileID: 6618277430843222443, guid: a899f51855d62014697dbcd8d647af76, type: 3}
       propertyPath: m_SizeDelta.x
