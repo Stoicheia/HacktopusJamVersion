@@ -13,7 +13,7 @@ namespace Minigame
 
         private float _progress;
 
-        private float Progress
+        public float Progress
         {
             get => _progress;
             set
@@ -21,26 +21,29 @@ namespace Minigame
                 if(value < 0) Debug.LogWarning("Invalid progress value. Clamping.");
                 if(value >= 1) InvokeComplete();
                 _progress = Mathf.Clamp01(value);
+                _progressIndicator.fillAmount = value;
             }
         }
+        
+        [field: SerializeField] public MinigameGameplay Game { get; set; }
 
-        [Header("Transforms")]
+        [Header("Transforms")] [SerializeField]
+        private Canvas _gameCanvas;
         [SerializeField] private RectTransform _ui;
         [SerializeField] private Transform _gameplay;
-
-        [Header("UI")] 
-        [SerializeField] private Slider _progressBar;
+        [SerializeField] private RectTransform _progressBar;
         [SerializeField] private RectTransform _controls;
 
-        public void SetBounds(RectTransform ctrlT, Transform gameT)
-        {
-            _ui.position = ctrlT.position;
-            _ui.localScale = ctrlT.localScale;
-            _ui.rotation = ctrlT.rotation;
+        [Header("Graphics")] 
+        [SerializeField] private Image _progressIndicator;
+        
 
-            _gameplay.position = gameT.position;
-            _gameplay.localScale = gameT.localScale;
-            _gameplay.rotation = gameT.rotation;
+        public void SetBounds(GameLayout layout)
+        {
+            CopyTransform(_ui, layout.UI);
+            CopyTransform(_gameplay, layout.Game);
+            CopyTransform(_progressBar, layout.Progress);
+            CopyTransform(_controls, layout.InstructionPanel);
         }
 
         public void InvokeComplete()
@@ -51,6 +54,18 @@ namespace Minigame
         public void InvokeFail()
         {
             OnFail?.Invoke();
+        }
+
+        private void CopyTransform(Transform from, Transform to)
+        {
+            from.position = to.position;
+            from.localScale = to.localScale;
+            from.rotation = to.rotation;
+        }
+
+        public void SetCamera(Camera c)
+        {
+            _gameCanvas.worldCamera = c;
         }
     }
 }

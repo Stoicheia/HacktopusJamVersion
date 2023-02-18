@@ -2,8 +2,18 @@
 
 namespace Minigame
 {
-    public class MinigameGameplay : MonoBehaviour
+    public abstract class MinigameGameplay : MonoBehaviour
     {
-        
+        private Minigame _minigame;
+
+        protected void SetProgress(float f)
+        {
+            _minigame.Progress = f;
+        }
+
+        protected void Fail()
+        {
+            _minigame.InvokeFail();
+        }
     }
 }
