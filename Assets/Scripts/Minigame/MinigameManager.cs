@@ -77,7 +77,19 @@ namespace Minigame
 
         public void TryLoadRandomGame(GameLayout layout)
         {
-            Minigame unfinishedGame = GetRandomUnfinishedGame();
+            Minigame unfinishedGame;
+            bool represented;
+            int tries = 4;
+            do
+            {
+                unfinishedGame = GetRandomUnfinishedGame();
+                represented = false;
+                foreach (var g in _gameLoaded.Where(x => x.Value))
+                {
+                    if (unfinishedGame.TypeID.Equals(g.Key.TypeID)) represented = true;
+                }
+            } while (tries-- > 0 && represented);
+
             if (unfinishedGame == null)
             {
                 Debug.LogWarning("You finished! No more to load...");

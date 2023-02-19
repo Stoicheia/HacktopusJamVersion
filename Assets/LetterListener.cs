@@ -62,7 +62,7 @@ namespace Minigame.Games
                         else
                         {
                             letters[0].text.color = Color.red;
-                            letters[0].text.text = letters[0].selectedLetter;
+                            letters[0].text.text = vKey.ToString();
                             isListening = false;
                             StartCoroutine(FailSequence(0.4f));
                         }

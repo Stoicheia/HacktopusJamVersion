@@ -1057,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3128883773733235894, guid: 7a0d479dec687094abcbb8f3eed08ec1, type: 3}
       propertyPath: m_Name
-      value: Hurdles 1
+      value: Hurdles
       objectReference: {fileID: 0}
     - target: {fileID: 3128883773733235895, guid: 7a0d479dec687094abcbb8f3eed08ec1, type: 3}
       propertyPath: m_RootOrder
@@ -1227,8 +1227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpKey: 106
-  _speed: 2.8
-  _jumpHeight: 11
+  _speed: 3
+  _jumpHeight: 12
   _gravity: 0.45
   _player: {fileID: 2722567380893221230}
   _left: {fileID: 4447267823328260294}
@@ -1255,6 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed398bb4716c2984a8357ee71f5249ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TypeID: 1
   <Game>k__BackingField: {fileID: 6766413649427952974}
   _gameCanvas: {fileID: 5906646932273854551}
   _ui: {fileID: 9029677080248013981}

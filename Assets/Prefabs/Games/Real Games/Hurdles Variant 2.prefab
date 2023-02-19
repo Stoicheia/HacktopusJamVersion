@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906646933763378577, guid: 8be4c5097afb8bf4ea15644c26550325, type: 3}
       propertyPath: m_Name
-      value: Hurdles
+      value: Hurdles Variant 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832868532977433323, guid: 8be4c5097afb8bf4ea15644c26550325, type: 3}
+      propertyPath: TypeID
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8be4c5097afb8bf4ea15644c26550325, type: 3}
