@@ -10,32 +10,35 @@ namespace Minigame.Games
         [Header("Controls")] [SerializeField] private KeyCode _pressKey;
 
         public float timeRemaining = 11f;
+        public float completion = 0.999f;
         public Text timerText;
+        public Text downloadingText;
+        public Text tutorialText;
         public GameObject bg;
-        private Renderer bgRend;
+        private SkewedImage bgRend;
         private Color countdownColor = Color.white;
         private Color pressKeyColour = Color.green;
         private bool isListening;
 
         private void Start()
         {
-            bgRend = bg.GetComponent<Renderer>();
-            bgRend.material.color = countdownColor;
+            bgRend = bg.GetComponent<SkewedImage>();
+            bgRend.color = countdownColor;
             isListening = false;
-            SetProgress((float)0.5);
+            SetProgress((float)completion);
         }
         private void Update()
         {
             if(isListening == false)
             {
-                if(_inputs.GetKeyDown(_pressKey))
+                if(Input.GetKeyDown(_pressKey))
                 {
                     SetProgress((float)0);
                 }
             }
             else
             {
-                if(_inputs.GetKeyDown(_pressKey))
+                if(Input.GetKeyDown(_pressKey))
                 {
                     SetProgress((float)1);
                 }
@@ -44,6 +47,8 @@ namespace Minigame.Games
             if(timeRemaining > 1)
             {
                 timeRemaining -= Time.deltaTime;
+                completion -= Time.deltaTime/10;
+                SetProgress((float)completion);
             }
             else
             {
@@ -72,8 +77,10 @@ namespace Minigame.Games
 
         IEnumerator pressKeyWindow()
         {
-            bgRend.material.color = pressKeyColour;
+            bgRend.color = pressKeyColour;
             timerText.color = pressKeyColour;
+            downloadingText.color = pressKeyColour;
+            tutorialText.color = pressKeyColour;
             isListening = true;
             yield return new WaitForSeconds(1);
             SetProgress((float)0);
