@@ -57,6 +57,7 @@ namespace Minigame.Games
             if (_jumpedThisFrame) _jumpedThisFrame = false;
             Vector3 newPosition = _rb.position + (Vector2)transform.TransformDirection (GameScale*_velocity*Time.deltaTime);
             _rb.MovePosition (newPosition);
+            _img.sprite = sprites[2];
 
             if(frameCounter > 0)
             {
@@ -73,7 +74,10 @@ namespace Minigame.Games
                 {
                     spriteCounter = 1;
                 }
-                _img.sprite = sprites[spriteCounter];
+                if(_isGrounded)
+                {
+                    _img.sprite = sprites[spriteCounter];
+                }
                 frameCounter = spriteFramerate;
             }
         }
