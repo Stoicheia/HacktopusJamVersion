@@ -9,7 +9,7 @@ namespace Minigame.Games.Core
 
         private void Start()
         {
-            InputsEnabled = true;
+            //InputsEnabled = true;
         }
 
         public bool GetKeyDown(KeyCode k)
