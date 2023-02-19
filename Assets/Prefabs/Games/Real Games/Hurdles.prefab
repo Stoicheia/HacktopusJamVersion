@@ -62,14 +62,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f44a49b36a82d6a4f84ebc80ab694287, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -115,6 +115,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameScale: 0
+  sprites:
+  - {fileID: 21300000, guid: aa4ad4537a6dba749a45ab06abcf12f8, type: 3}
+  - {fileID: 21300000, guid: f44a49b36a82d6a4f84ebc80ab694287, type: 3}
+  - {fileID: 21300000, guid: b3cf0ed9469f3a846981f1ab2809e07a, type: 3}
+  spriteFramerate: 0.3
+  frameCounter: 0.3
+  spriteCounter: 0
   Speed: 0
   JumpHeight: 0
   Gravity: 0
@@ -331,15 +338,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: J TO JUMP
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d866093ffbf2e9643b62fbe9685e3f2d, type: 2}
+  m_sharedMaterial: {fileID: -6718203351022774932, guid: d866093ffbf2e9643b62fbe9685e3f2d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289025406
+  m_fontColor: {r: 0.49411765, g: 0.33333334, b: 0.64705884, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -583,8 +590,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -114.67, y: -143}
-  m_SizeDelta: {x: 524.97, y: 17.4713}
+  m_AnchoredPosition: {x: -1.2217, y: -173.25288}
+  m_SizeDelta: {x: 751.8666, y: 77.977}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4029028760289509886
 CanvasRenderer:
@@ -963,6 +970,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 566182891485984186, guid: 7a0d479dec687094abcbb8f3eed08ec1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 566182891485984186, guid: 7a0d479dec687094abcbb8f3eed08ec1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 566182891485984186, guid: 7a0d479dec687094abcbb8f3eed08ec1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9960785
+      objectReference: {fileID: 0}
     - target: {fileID: 3128883771966937456, guid: 7a0d479dec687094abcbb8f3eed08ec1, type: 3}
       propertyPath: m_Camera
       value: 
