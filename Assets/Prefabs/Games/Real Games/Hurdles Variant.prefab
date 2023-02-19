@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hurdles Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6766413649427952974, guid: 8be4c5097afb8bf4ea15644c26550325, type: 3}
+      propertyPath: _speed
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766413649427952974, guid: 8be4c5097afb8bf4ea15644c26550325, type: 3}
+      propertyPath: _gravity
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8832868532977433323, guid: 8be4c5097afb8bf4ea15644c26550325, type: 3}
       propertyPath: TypeID
       value: 1

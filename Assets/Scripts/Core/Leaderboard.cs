@@ -36,7 +36,7 @@ namespace Minigame.Games.Core
         {
             for (int i = 0; i < members.Length; i++)
             {
-                _names[i].text = members[i].member_id;
+                _names[i].text = members[i].player.name == "" ? members[i].player.id.ToString() : members[i].player.name;
                 _scores[i].text = members[i].score.ToString();
                 _places[i].text = $"#{i+1}.";
             }

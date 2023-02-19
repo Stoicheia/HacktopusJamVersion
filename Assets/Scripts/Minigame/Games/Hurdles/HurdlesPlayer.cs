@@ -86,6 +86,7 @@ namespace Minigame.Games
         {
             if (!_isGrounded) return;
             _velocity.y = JumpHeight;
+            Speed *= 1.3f;
             _jumpedThisFrame = true;
             _isGrounded = false;
         }

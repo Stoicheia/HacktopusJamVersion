@@ -46,11 +46,21 @@ namespace Minigame.Games.Core
         [SerializeField] private RectTransform _successSubmit;
         [SerializeField] private RectTransform _failSubmit;
         [SerializeField] private Button _submitButton;
-        
 
         public void SubmitScore()
         {
-            LootLockerSDKManager.SubmitScore(_nameField.text, (int)_finalTime, "time", (r) =>
+            StartCoroutine(SubmitScoreSequence());
+        }
+        private IEnumerator SubmitScoreSequence()
+        {
+            bool done = false;
+            LootLockerSDKManager.SetPlayerName(_nameField.text, (response) =>
+            {
+                done = true;
+            });
+            yield return new WaitWhile(() => done == false);
+            string playerID = PlayerPrefs.GetString("PlayerID"); 
+            LootLockerSDKManager.SubmitScore(playerID, (int)_finalTime, "time", (r) =>
             {
                 if (r.statusCode == 200)
                 {
