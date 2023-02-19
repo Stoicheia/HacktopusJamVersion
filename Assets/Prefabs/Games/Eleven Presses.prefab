@@ -151,8 +151,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000049591, y: -143}
-  m_SizeDelta: {x: 204.0313, y: 17.4713}
+  m_AnchoredPosition: {x: -2.0199, y: -143}
+  m_SizeDelta: {x: 673.9988, y: 17.4713}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4029028760289509886
 CanvasRenderer:
@@ -280,6 +280,14 @@ PrefabInstance:
     - target: {fileID: 1677402684554235397, guid: a899f51855d62014697dbcd8d647af76, type: 3}
       propertyPath: m_Name
       value: Eleven Presses
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677402685153913347, guid: a899f51855d62014697dbcd8d647af76, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 436.3933
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677402685153913347, guid: a899f51855d62014697dbcd8d647af76, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -22.41391
       objectReference: {fileID: 0}
     - target: {fileID: 6618277430843222443, guid: a899f51855d62014697dbcd8d647af76, type: 3}
       propertyPath: m_SizeDelta.x

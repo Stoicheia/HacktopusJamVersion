@@ -1,0 +1,10 @@
+﻿using UnityEngine;
+
+namespace ImageUtility
+{
+    public class SkewPosition : MonoBehaviour
+    {
+        public RectTransform Parent { get; set; }
+        
+    }
+}

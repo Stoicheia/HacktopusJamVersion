@@ -53,9 +53,9 @@ namespace Minigame
         {
             CopySkewTransform(_ui, layout.UI);
             CopyTransform(_gameplay, layout.Game);
-            //CopySkewTransform(_progressBar, layout.Progress);
+            CopyTransform(_progressBar.transform, layout.Progress.transform);
             //CopySkewTransform(_controls, layout.InstructionPanel);
-            SetAllSkews(_ui.skewX, _ui.skewY);
+            //SetAllSkews(_ui.skewX, _ui.skewY);
             CopyScale(_progressBar.transform, layout.Progress.transform);
             foreach (var i in _allGameplayElements)
             {
@@ -93,6 +93,8 @@ namespace Minigame
             from.position = to.position;
             from.localScale = to.localScale;
             from.rotation = to.rotation;
+
+            from.pivot = to.pivot;
 
             from.sizeDelta = new Vector2(to.rect.width, to.rect.height);
             fromI.skewX = toI.skewX;
