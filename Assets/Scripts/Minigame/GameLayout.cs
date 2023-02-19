@@ -1,5 +1,6 @@
 ﻿using System;
 using Animations;
+using Minigame.Games.Core;
 using UnityEngine;
 
 namespace Minigame
@@ -31,9 +32,16 @@ namespace Minigame
 
         [SerializeField] private KeyCode _loadKey;
 
+        private InputPoller _inputs;
+
+        private void Start()
+        {
+            _inputs = FindObjectOfType<InputPoller>();
+        }
+
         private void Update()
         {
-            if (Input.GetKeyDown(_loadKey) && IsFree)
+            if (_inputs.GetKeyDown(_loadKey) && IsFree)
             {
                 TransitionIn();
             }

@@ -28,14 +28,14 @@ namespace Minigame.Games
         {
             if(isListening == false)
             {
-                if(Input.GetKeyDown(_pressKey))
+                if(_inputs.GetKeyDown(_pressKey))
                 {
                     SetProgress((float)0);
                 }
             }
             else
             {
-                if(Input.GetKeyDown(_pressKey))
+                if(_inputs.GetKeyDown(_pressKey))
                 {
                     SetProgress((float)1);
                 }

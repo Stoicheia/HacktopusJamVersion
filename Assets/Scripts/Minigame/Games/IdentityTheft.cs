@@ -20,8 +20,9 @@ namespace Minigame.Games
         private List<IdentityElement> _currentlySelected;
         private List<IdentityElement> _correct;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             GenerateCorrect();
             _target.Load(_correct);
         }
@@ -30,7 +31,7 @@ namespace Minigame.Games
         {
             foreach (var o in _options)
             {
-                if (Input.GetKeyDown(o.Key))
+                if (_inputs.GetKeyDown(o.Key))
                 {
                     o.Toggle();
                 }

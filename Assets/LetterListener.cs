@@ -11,7 +11,7 @@ namespace Minigame.Games
         public List<char> selectedString;
         public float completion;
 
-        void Start()
+        protected override void Start()
         {
             isListening = false;
             selectedString = null;
@@ -33,7 +33,7 @@ namespace Minigame.Games
             {
                 foreach(KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
                 {
-                    if(Input.GetKeyDown(vKey))
+                    if(_inputs.GetKeyDown(vKey))
                     {
                         if(vKey.ToString() == selectedString[0].ToString())
                         {
@@ -43,7 +43,7 @@ namespace Minigame.Games
                             letters.RemoveAt(0);
                             selectedString.RemoveAt(0);
                             completion += 1f;
-                            //SetProgress((float)completion/3);
+                            SetProgress((float)completion/3);
                         }
                     }
                 }

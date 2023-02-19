@@ -26,8 +26,9 @@ namespace Minigame.Games
             _player.OnDie -= HandleDie;
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _playerT = _player.GetComponent<RectTransform>();
             _player.SetConfig(_speed, _jumpHeight, _gravity);
             _player.transform.position = _left.transform.position;
@@ -37,7 +38,7 @@ namespace Minigame.Games
         private void Update()
         {
             _player.GameScale = _scale;
-            if (Input.GetKeyDown(_jumpKey))
+            if (_inputs.GetKeyDown(_jumpKey))
             {
                 _player.Jump();
             }

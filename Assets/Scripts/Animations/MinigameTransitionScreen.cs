@@ -42,13 +42,13 @@ namespace Animations
             _middle.transform.localRotation = Quaternion.Euler(0,0,_rotationMagnitude);
             _middle.transform.localScale = new Vector3(0, 0, 0);
             var _sequence = DOTween.Sequence();
-            _sequence.Join(_background.DOColor(_backgroundColor, _alphaFadeSeconds));
+            //_sequence.Join(_background.DOColor(_backgroundColor, _alphaFadeSeconds));
             _sequence.Join(_middle.transform.DOLocalRotate(new Vector3(0,0,0),_rotateSeconds));
             _sequence.Join(_middle.transform.DOScale(new Vector3(1,1,1), _entryDuration).SetEase(Ease.OutElastic));
             _sequence.AppendInterval(_waitSeconds);
             _sequence.Append(_middle.transform.DOScale(new Vector3(0,0,0), _exitDuration));
             _sequence.Join(_middle.transform.DOLocalRotate(new Vector3(0, 0, _rotationMagnitude), _rotateSeconds)).SetDelay(_exitDuration-_rotateSeconds);
-            _sequence.Join(_background.DOColor(new Color(0, 0, 0, 0), _alphaFadeSeconds)).SetDelay(_exitDuration-_alphaFadeSeconds);
+            //_sequence.Join(_background.DOColor(new Color(0, 0, 0, 0), _alphaFadeSeconds)).SetDelay(_exitDuration-_alphaFadeSeconds);
             _sequence.onComplete += () =>
             {
                 OnEnd?.Invoke();

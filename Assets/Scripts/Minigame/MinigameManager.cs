@@ -45,6 +45,13 @@ namespace Minigame
             Minigame.OnFail += HandleFail;
             GameLayout.OnRequestLoad += TryLoadRandomGame;
         }
+        
+        private void OnDisable()
+        {
+            Minigame.OnComplete -= HandleComplete;
+            Minigame.OnFail -= HandleFail;
+            GameLayout.OnRequestLoad -= TryLoadRandomGame;
+        }
 
         private void Start()
         {

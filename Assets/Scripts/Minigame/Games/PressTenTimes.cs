@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace Minigame.Games
@@ -9,18 +10,22 @@ namespace Minigame.Games
 
         [Header("Config")] [SerializeField] private int _targetPresses;
 
+        [SerializeField] private TextMeshProUGUI _pressesLeftField;
+
         private int _currentPresses;
-        private void Start()
+        protected override void Start()
         {
-            
+            base.Start();
         }
         private void Update()
         {
-            if (Input.GetKeyDown(_pressKey))
+            if (_inputs.GetKeyDown(_pressKey))
             {
                 _currentPresses++;
                 SetProgress((float)_currentPresses/_targetPresses);
             }
+
+            _pressesLeftField.text = (_targetPresses - _currentPresses).ToString();
         }
     }
 }

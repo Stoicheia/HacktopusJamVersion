@@ -12,15 +12,16 @@ namespace Minigame.Games
         public Vector2 endPos;
         public float endDistance = 100f;
         public float rodSpeed;
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             startPos = transform.position;
             endPos = new Vector2(startPos.x, startPos.y - endDistance);
         }
         private void Update()
         {
             float currentDistance = transform.position.y - endPos.y;
-            //SetProgress((float) 1 - (currentDistance / endDistance));
+            SetProgress((float) 1 - (currentDistance / endDistance));
             if (Input.GetKey(_pressKey))
             {
                 transform.Translate(Vector2.down * (Time.deltaTime * rodSpeed));
@@ -32,7 +33,7 @@ namespace Minigame.Games
             if(col.gameObject.tag == "Fish")
             {
                 Debug.Log("You died!");
-                //SetProgress((float) 0f);
+                SetProgress((float) 0f);
             }
         }
     }

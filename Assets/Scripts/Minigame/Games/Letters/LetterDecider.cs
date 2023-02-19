@@ -19,12 +19,12 @@ public class LetterDecider : MonoBehaviour
 
     IEnumerator DecideLetters()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.25f);
 
         selectedLetter = acceptableLetters[Random.Range(0, 6)].ToString();
         text.text = selectedLetter;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
 
         if(text.color != Color.green)
         {
