@@ -84,6 +84,7 @@ namespace Minigame.Games
             isListening = true;
             yield return new WaitForSeconds(1);
             SetProgress((float)0);
+            Fail();
         }
     }
 }

@@ -11,7 +11,7 @@ public class FishSpawner : MonoBehaviour
 
     void Start()
     {
-        NewRandomTimer(1f, 3f);
+        NewRandomTimer(0f, 1f);
     }
     void Update()
     {
@@ -22,20 +22,20 @@ public class FishSpawner : MonoBehaviour
         else
         {
             SpawnFish();
-            NewRandomTimer(3f, 6f);
+            NewRandomTimer(2f, 6f);
         }
     }
 
     void SpawnFish()
     {
-        GameObject newFish = Instantiate(fishPrefab, new Vector2(this.transform.position.x, Random.Range(this.transform.position.y + 50, this.transform.position.y - 50)), Quaternion.identity);
+        GameObject newFish = Instantiate(fishPrefab, new Vector2(this.transform.position.x, this.transform.position.y + Random.Range(-0.5f, 0.5f)), Quaternion.identity);
         if(isLeft)
         {
-            newFish.GetComponent<Fish>().fishSpeed = -40f;
+            newFish.GetComponent<Fish>().fishSpeed = -0.9f;
         }
         else
         {
-            newFish.GetComponent<Fish>().fishSpeed = 40f;
+            newFish.GetComponent<Fish>().fishSpeed = 0.9f;
         }
         
         newFish.transform.SetParent(this.transform);

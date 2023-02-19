@@ -10,22 +10,28 @@ namespace Minigame.Games
 
         public Vector2 startPos;
         public Vector2 endPos;
-        public float endDistance = 100f;
+        public float endDistance;
         public float rodSpeed;
+        public bool isAlive;
         protected override void Start()
         {
             base.Start();
             startPos = transform.position;
             endPos = new Vector2(startPos.x, startPos.y - endDistance);
+            isAlive = true;
         }
         private void Update()
         {
-            float currentDistance = transform.position.y - endPos.y;
-            SetProgress((float) 1 - (currentDistance / endDistance));
-            if (Input.GetKey(_pressKey))
+            if(isAlive == true)
             {
-                transform.Translate(Vector2.down * (Time.deltaTime * rodSpeed));
+                float currentDistance = transform.position.y - endPos.y;
+                SetProgress((float) 1 - (currentDistance / endDistance));
+                if (Input.GetKey(_pressKey))
+                {
+                    transform.Translate(Vector2.down * (Time.deltaTime * rodSpeed));
+                }
             }
+            
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -33,7 +39,9 @@ namespace Minigame.Games
             if(col.gameObject.tag == "Fish")
             {
                 Debug.Log("You died!");
-                SetProgress((float) 0f);
+                isAlive = false;
+                SetProgress((float) 0);
+                Fail();
             }
         }
     }
