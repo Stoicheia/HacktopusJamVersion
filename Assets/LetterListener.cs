@@ -11,11 +11,25 @@ namespace Minigame.Games
         public List<char> selectedString;
         public float completion;
 
+        private List<KeyCode> _listenToTheseKeycodes;
+
         protected override void Start()
         {
+            base.Start();
             isListening = false;
             selectedString = null;
             completion = 0f;
+
+            _listenToTheseKeycodes = new List<KeyCode>()
+            {
+                KeyCode.Z,
+                KeyCode.X,
+                KeyCode.C,
+                KeyCode.V,
+                KeyCode.B,
+                KeyCode.N,
+                KeyCode.M
+            };
         }
 
         void Update()
@@ -31,7 +45,7 @@ namespace Minigame.Games
 
             if(isListening == true)
             {
-                foreach(KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
+                foreach(KeyCode vKey in _listenToTheseKeycodes)
                 {
                     if(_inputs.GetKeyDown(vKey))
                     {
@@ -45,6 +59,13 @@ namespace Minigame.Games
                             completion += 1f;
                             SetProgress((float)completion/3);
                         }
+                        else
+                        {
+                            letters[0].text.color = Color.red;
+                            letters[0].text.text = letters[0].selectedLetter;
+                            isListening = false;
+                            StartCoroutine(FailSequence(0.4f));
+                        }
                     }
                 }
             }
@@ -55,6 +76,12 @@ namespace Minigame.Games
         {
             selectedString = new List<char>(letters[0].selectedLetter.ToUpper() + letters[1].selectedLetter.ToUpper() + letters[2].selectedLetter.ToUpper());
             isListening = true;
+        }
+
+        private IEnumerator FailSequence(float s)
+        {
+            yield return new WaitForSeconds(s);
+            Fail();
         }
     }
 }
