@@ -12,6 +12,8 @@ namespace Minigame
         public static event Action<Minigame> OnFail;
 
         private float _progress;
+        
+        public int TypeID;
 
         public float Progress
         {

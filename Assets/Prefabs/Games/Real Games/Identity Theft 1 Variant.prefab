@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906646933763378577, guid: d118cdcad738efa458e9ac57551afe76, type: 3}
       propertyPath: m_Name
-      value: Identity Theft 1
+      value: Identity Theft 1 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832868532977433323, guid: d118cdcad738efa458e9ac57551afe76, type: 3}
+      propertyPath: TypeID
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d118cdcad738efa458e9ac57551afe76, type: 3}

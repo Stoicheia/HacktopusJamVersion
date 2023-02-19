@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906646933763378577, guid: a0224024430bda24e9a92484da60566b, type: 3}
       propertyPath: m_Name
-      value: Ten Presses
+      value: Ten Presses Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832868532977433323, guid: a0224024430bda24e9a92484da60566b, type: 3}
+      propertyPath: TypeID
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0224024430bda24e9a92484da60566b, type: 3}
