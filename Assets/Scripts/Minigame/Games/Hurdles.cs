@@ -29,11 +29,18 @@ namespace Minigame.Games
         private void Start()
         {
             _playerT = _player.GetComponent<RectTransform>();
+            _player.SetConfig(_speed, _jumpHeight, _gravity);
+            _player.transform.position = _left.transform.position;
+            _player.GroundY = _left.position.y;
         }
 
         private void Update()
         {
-            SetProgress(Mathf.InverseLerp(_left.rect.x, _right.rect.x, _playerT.rect.x));
+            if (Input.GetKeyDown(_jumpKey))
+            {
+                _player.Jump();
+            }
+            SetProgress(Mathf.InverseLerp(_left.position.x, _right.position.x, _playerT.position.x));
         }
 
         private void HandleDie()

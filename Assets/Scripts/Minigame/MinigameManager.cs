@@ -131,7 +131,7 @@ namespace Minigame
 
         private void HandleFail(Minigame instance)
         {
-            
+            UnloadGame(instance);
         }
     }
 }
