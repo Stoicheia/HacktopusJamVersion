@@ -74,11 +74,7 @@ namespace Minigame
             if (unfinishedGame == null)
             {
                 Debug.LogWarning("You finished! No more to load...");
-                return;
-            }
-            if (!layout.IsFree)
-            {
-                Debug.LogWarning("NONONONO!!");
+                layout.IsFree = true;
                 return;
             }
             LoadGame(unfinishedGame, layout);
@@ -106,9 +102,17 @@ namespace Minigame
             _gameLoaded[game] = true;
         }
 
-        private void UnloadGame(Minigame gameInstance)
+        private void UnloadGame(Minigame gameInstance, bool won)
         {
-            _gameToLayout[gameInstance].IsFree = true;
+            var gl = _gameToLayout[gameInstance];
+            if (won)
+            {
+                gl.TransitionOutWin();
+            }
+            else
+            {
+                gl.TransitionOutFail();
+            }
             _gameToLayout.Remove(gameInstance);
             Destroy(gameInstance.gameObject);
             _gameLoaded[gameInstance.Prefab] = false;
@@ -126,12 +130,12 @@ namespace Minigame
         private void HandleComplete(Minigame instance)
         {
             _gameCompleted[instance.Prefab] = true;
-            UnloadGame(instance);
+            UnloadGame(instance, true);
         }
 
         private void HandleFail(Minigame instance)
         {
-            UnloadGame(instance);
+            UnloadGame(instance, false);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Animations;
 using UnityEngine;
 
 namespace Minigame
@@ -24,14 +25,67 @@ namespace Minigame
         [SerializeField] public SkewedImage InstructionPanel;
         [SerializeField] private SkewedImage _backScreen;
 
+        [SerializeField] private MinigameTransitionScreen _transitionIn;
+        [SerializeField] private MinigameTransitionScreen _transitionOutWin;
+        [SerializeField] private MinigameTransitionScreen _transitionOutFail;
+
         [SerializeField] private KeyCode _loadKey;
 
         private void Update()
         {
-            if (Input.GetKeyDown(_loadKey))
+            if (Input.GetKeyDown(_loadKey) && IsFree)
             {
-                OnRequestLoad?.Invoke(this);
+                TransitionIn();
             }
+        }
+
+        private void OnEnable()
+        {
+            _transitionIn.OnEnd += LoadGame;
+            _transitionOutFail.OnEnd += Free;
+            _transitionOutWin.OnEnd += Free;
+            
+            _transitionIn.gameObject.SetActive(false);
+            _transitionOutFail.gameObject.SetActive(false);
+            _transitionOutWin.gameObject.SetActive(false);
+        }
+
+        private void OnDisable()
+        {
+            _transitionIn.OnEnd -= LoadGame;
+            _transitionOutFail.OnEnd -= Free;
+            _transitionOutWin.OnEnd -= Free;
+        }
+
+        public void TransitionIn()
+        {
+            _transitionIn.Play();
+            IsFree = false;
+        }
+
+        public void TransitionOutFail()
+        {
+            _transitionOutFail.Play();
+        }
+
+        public void TransitionOutWin()
+        {
+            _transitionOutWin.Play();
+        }
+
+        private void Free()
+        {
+            IsFree = true;
+        }
+
+        private void Unfree()
+        {
+            IsFree = false;
+        }
+
+        private void LoadGame()
+        {
+            OnRequestLoad?.Invoke(this);
         }
     }
 }
