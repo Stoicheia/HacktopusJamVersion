@@ -40,6 +40,13 @@ namespace Minigame.Games.Core
                 _scores[i].text = members[i].score.ToString();
                 _places[i].text = $"#{i+1}.";
             }
+
+            for (int i = members.Length; i < _names.Count; i++)
+            {
+                _names[i].text = "";
+                _scores[i].text = "";
+                _places[i].text = "";
+            }
         }
     }
 }

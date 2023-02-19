@@ -19,6 +19,17 @@ namespace Minigame
             }
         }
 
+        private bool _permaFreeze;
+        public bool PermaFreeze
+        {
+            get => _permaFreeze;
+            set
+            {
+                _permaFreeze = value;
+                _freezeScreen.gameObject.SetActive(value);
+            }
+        }
+
         [SerializeField] public float UniversalScale;
         [SerializeField] public SkewedImage UI;
         [SerializeField] public Transform Game;
@@ -29,6 +40,7 @@ namespace Minigame
         [SerializeField] private MinigameTransitionScreen _transitionIn;
         [SerializeField] private MinigameTransitionScreen _transitionOutWin;
         [SerializeField] private MinigameTransitionScreen _transitionOutFail;
+        [SerializeField] private RectTransform _freezeScreen;
 
         [SerializeField] private KeyCode _loadKey;
 
@@ -37,11 +49,12 @@ namespace Minigame
         private void Start()
         {
             _inputs = FindObjectOfType<InputPoller>();
+            PermaFreeze = false;
         }
 
         private void Update()
         {
-            if (_inputs.GetKeyDown(_loadKey) && IsFree)
+            if (_inputs.GetKeyDown(_loadKey) && IsFree && !PermaFreeze)
             {
                 TransitionIn();
             }

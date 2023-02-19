@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Minigame.Games
@@ -10,6 +11,8 @@ namespace Minigame.Games
         public bool isListening;
         public List<char> selectedString;
         public float completion;
+
+        public TextMeshProUGUI Instructional;
 
         private List<KeyCode> _listenToTheseKeycodes;
 
@@ -30,6 +33,7 @@ namespace Minigame.Games
                 KeyCode.N,
                 KeyCode.M
             };
+            StartCoroutine(StartSequence(0.6f));
         }
 
         void Update()
@@ -82,6 +86,12 @@ namespace Minigame.Games
         {
             yield return new WaitForSeconds(s);
             Fail();
+        }
+
+        private IEnumerator StartSequence(float s)
+        {
+            yield return new WaitForSeconds(s);
+            Instructional.text = "Press in order!";
         }
     }
 }

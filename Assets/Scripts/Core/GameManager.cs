@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using LootLocker.Requests;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Minigame.Games.Core
 {
@@ -17,8 +19,11 @@ namespace Minigame.Games.Core
         [SerializeField] private EndScreen _endScreen;
         [SerializeField] private RectTransform _startScreen;
         [SerializeField] private Animator _countdown;
+        [SerializeField] private Button _leaderboardButton;
+        [SerializeField] private TextMeshProUGUI _leaderboardText;
 
         private bool _paused;
+        private bool _finished;
 
         private void Awake()
         {
@@ -29,6 +34,10 @@ namespace Minigame.Games.Core
 
         private IEnumerator Start()
         {
+            _leaderboardButton.interactable = false;
+            _leaderboardText.text = "Loading Leaderboard";
+            
+            _finished = false;
             BestTime = Single.PositiveInfinity;
             _inputs.InputsEnabled = false;
             _startScreen.gameObject.SetActive(true);
@@ -37,6 +46,8 @@ namespace Minigame.Games.Core
             LootLockerSDKManager.StartGuestSession((response) => {
                 if (response.success) {
                     PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
+                    _leaderboardButton.interactable = true;
+                    _leaderboardText.text = "View Leaderboard";
                     done = true;
                 } else {
                     done = true;
@@ -70,9 +81,10 @@ namespace Minigame.Games.Core
                 }
             }
 
-            if (_minigames.Finished)
+            if (_minigames.Finished && !_finished)
             {
                 End();
+                _finished = true;
             }
         }
 
@@ -101,6 +113,8 @@ namespace Minigame.Games.Core
 
         public void End()
         {
+            _minigames.Stop();
+            
             _endScreen.gameObject.SetActive(true);
             _paused = true;
             _inputs.InputsEnabled = false;

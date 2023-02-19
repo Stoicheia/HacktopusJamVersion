@@ -19,7 +19,7 @@ public class LetterDecider : MonoBehaviour
 
     IEnumerator DecideLetters()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         selectedLetter = acceptableLetters[Random.Range(0, 6)].ToString();
         text.text = selectedLetter;

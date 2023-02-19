@@ -95,7 +95,8 @@ namespace Minigame
             if (unfinishedGame == null)
             {
                 Debug.LogWarning("You finished! No more to load...");
-                layout.IsFree = true;
+                layout.IsFree = false;
+                layout.PermaFreeze = true;
                 return;
             }
             LoadGame(unfinishedGame, layout);
