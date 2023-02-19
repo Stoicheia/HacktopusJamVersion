@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf4a1585be34fb19c2b2e25b0ad5b20, type: 3}
+  m_Name: F
+  m_EditorClassIdentifier: 
+  Text: F
+  MinTimeSeconds: 5000
+  Description: The hacker's life ain't for you
+  Color: {r: 0.33962262, g: 0.18134567, b: 0.22684808, a: 1}

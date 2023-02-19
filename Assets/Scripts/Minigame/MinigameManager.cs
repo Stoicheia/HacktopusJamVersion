@@ -25,6 +25,8 @@ namespace Minigame
 
         public float Timer => _timer;
 
+        public bool Finished => MinigamesCompleted == MinigamesCount;
+
         private void OnEnable()
         {
             _gameCompleted = new Dictionary<Minigame, bool>();
@@ -55,7 +57,7 @@ namespace Minigame
 
         private void Start()
         {
-            Initialise();
+            
         }
 
         public void Initialise()
@@ -79,14 +81,14 @@ namespace Minigame
         {
             Minigame unfinishedGame;
             bool represented;
-            int tries = 4;
+            int tries = 5;
             do
             {
                 unfinishedGame = GetRandomUnfinishedGame();
                 represented = false;
                 foreach (var g in _gameLoaded.Where(x => x.Value))
                 {
-                    if (unfinishedGame.TypeID.Equals(g.Key.TypeID)) represented = true;
+                    if (unfinishedGame != null && unfinishedGame.TypeID.Equals(g.Key.TypeID)) represented = true;
                 }
             } while (tries-- > 0 && represented);
 
