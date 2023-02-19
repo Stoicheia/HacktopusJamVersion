@@ -31,11 +31,12 @@ namespace Minigame.Games
             _playerT = _player.GetComponent<RectTransform>();
             _player.SetConfig(_speed, _jumpHeight, _gravity);
             _player.transform.position = _left.transform.position;
-            _player.GroundY = _left.position.y;
+            _player.GroundY = _left.localPosition.y;
         }
 
         private void Update()
         {
+            _player.GameScale = _scale;
             if (Input.GetKeyDown(_jumpKey))
             {
                 _player.Jump();

@@ -5,6 +5,7 @@ namespace Minigame
     public abstract class MinigameGameplay : MonoBehaviour
     {
         private Minigame _minigame;
+        protected float _scale => _minigame.Scale;
 
         public void SetGame(Minigame g)
         {

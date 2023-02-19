@@ -7,6 +7,8 @@ namespace Minigame.Games
     public class HurdlesPlayer : MonoBehaviour
     {
         public event Action OnDie;
+
+        public float GameScale;
         
         private Rigidbody2D _rb;
         private Collider2D _col;
@@ -39,14 +41,15 @@ namespace Minigame.Games
         {
             _velocity.x = Speed;
             _velocity.y -= Gravity;
-            if (_velocity.y < 0 && transform.position.y <= GroundY && !_jumpedThisFrame)
+            if (_velocity.y < 0 && transform.localPosition.y <= GroundY && !_jumpedThisFrame)
             {
                 _velocity.y = 0;
                 _isGrounded = true;
             }
 
             if (_jumpedThisFrame) _jumpedThisFrame = false;
-            _rb.MovePosition((Vector2)transform.position + _velocity*Time.deltaTime);
+            Vector3 newPosition = _rb.position + (Vector2)transform.TransformDirection (GameScale*_velocity*Time.deltaTime);
+            _rb.MovePosition (newPosition);
         }
 
         public void Jump()

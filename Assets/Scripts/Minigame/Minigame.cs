@@ -42,6 +42,8 @@ namespace Minigame
         [SerializeField] private List<RectTransform> _allGameplayElements;
         [SerializeField] private Image _progressIndicator;
 
+        public float Scale;
+
         private void Awake()
         {
             Game.SetGame(this);
@@ -61,6 +63,7 @@ namespace Minigame
             {
                 SetScale(i, layout.UniversalScale);
             }
+            Scale = layout.UniversalScale;
         }
 
         public void InvokeComplete()
