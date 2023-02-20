@@ -18039,7 +18039,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3618670898698337429, guid: 670a8ea29c1bb3a439b7487f6c111a6e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3618670899583755364, guid: 670a8ea29c1bb3a439b7487f6c111a6e, type: 3}
       propertyPath: m_Pivot.x
