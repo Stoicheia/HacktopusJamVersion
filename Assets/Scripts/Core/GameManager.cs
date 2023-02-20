@@ -79,13 +79,13 @@ namespace Minigame.Games.Core
             {
                 BeginGameSequence();
             }
-            if (_inputs.GetKeyDownLockedPure(_restartButton))
+            if (_inputs.GetKeyDownLockedPure(_restartButton) && !_finished)
             {
                 Restart();
             }
             foreach (var k in _pauseButtons)
             {
-                if (_inputs.GetKeyDownLockedPure(k))
+                if (_inputs.GetKeyDownLockedPure(k) && !_finished)
                 {
                     if (!_paused)
                     {
