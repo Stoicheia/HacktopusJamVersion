@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: C
   m_EditorClassIdentifier: 
   Text: C
-  MinTimeSeconds: 240
+  MinTimeSeconds: 260
   Description: C is for COOL (Crappy Octopus of Lameness)
   Color: {r: 0.5660378, g: 0.03524389, b: 0.54076195, a: 1}
