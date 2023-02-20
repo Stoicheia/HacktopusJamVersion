@@ -124,7 +124,7 @@ namespace Minigame
 
         private void TryLoadRequested(GameLayout gameLayout, Minigame minigame)
         {
-            if(minigame != null && !_gameCompleted[minigame.Prefab])
+            if(minigame != null)
                 LoadGame(minigame, gameLayout);
         }
 

@@ -16,7 +16,7 @@ namespace Minigame
 
         private void Update()
         {
-            _timerField.text = $"{_manager.Timer / 60:00}:{_manager.Timer % 60:00}";
+            _timerField.text = $"{(int)_manager.Timer / 60:00}:{(int)_manager.Timer % 60:00}";
             _progressField.text = $"{_manager.MinigamesCompleted}/{_manager.MinigamesCount}";
             _progressPercentField.text = $"{(float)_manager.MinigamesCompleted/_manager.MinigamesCount:0%}";
             _progressImage.fillAmount = (float) _manager.MinigamesCompleted / _manager.MinigamesCount;

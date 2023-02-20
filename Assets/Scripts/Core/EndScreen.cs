@@ -17,7 +17,7 @@ namespace Minigame.Games.Core
             set
             {
                 _finalTime = value;
-                _timeField.text = $"{_finalTime / 60:00}:{_finalTime % 60:00}";
+                _timeField.text = $"{(int)_finalTime / 60:00}:{(int)_finalTime % 60:00}";
                 var grade = _grader.CalculateGrade((int)_finalTime);
                 _gradeField.text = grade.Text;
                 _gradeDescriptionField.text = grade.Description;

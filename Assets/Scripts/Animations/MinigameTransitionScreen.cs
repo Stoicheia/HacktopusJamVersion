@@ -25,9 +25,11 @@ namespace Animations
 
         private bool _isPlaying;
 
+        private bool _lock;
+
         private void Start()
         {
-            
+            _lock = false;
         }
 
         private void Update()
@@ -68,6 +70,7 @@ namespace Animations
         
         public void Play(Minigame.Minigame m)
         {
+            _lock = false;
             _isPlaying = true;
             gameObject.SetActive(true);
             _background.color = _backgroundColor;
@@ -83,7 +86,9 @@ namespace Animations
             //_sequence.Join(_background.DOColor(new Color(0, 0, 0, 0), _alphaFadeSeconds)).SetDelay(_exitDuration-_alphaFadeSeconds);
             _sequence.onComplete += () =>
             {
-                OnEndRequested?.Invoke(m);
+                if(!_lock)
+                    OnEndRequested?.Invoke(m);
+                _lock = true;
                 _isPlaying = false;
                 if (!_debugMode)
                 {
