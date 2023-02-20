@@ -18,6 +18,12 @@ namespace Minigame.Games.Audio
             get => _audio.volume;
             set => _targetVolume = value;
         }
+        
+        public float VolumeMultiplier
+        {
+            get;
+            set;
+        }
 
         private void Awake()
         {
@@ -26,7 +32,7 @@ namespace Minigame.Games.Audio
 
         private void Update()
         {
-            _audio.volume = Mathf.Lerp(_audio.volume, _targetVolume, _fadeStrength * Time.deltaTime);
+            _audio.volume = Mathf.Lerp(_audio.volume, _targetVolume * VolumeMultiplier, _fadeStrength * Time.deltaTime);
         }
 
         public void Play(bool withVolume)

@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1462840096891368425, guid: 8981115478c9c9c4f94b6849fb71903d, type: 3}
+      propertyPath: _targetPresses
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 4548928540252539988, guid: 8981115478c9c9c4f94b6849fb71903d, type: 3}
       propertyPath: m_Name
-      value: Ten Presses Variant 1
+      value: Ten Presses Variant 1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4548928540252539989, guid: 8981115478c9c9c4f94b6849fb71903d, type: 3}
       propertyPath: m_RootOrder

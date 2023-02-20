@@ -8,6 +8,7 @@ namespace Minigame.Games.Audio
     public class AudioLayersManager : MonoBehaviour
     {
         [SerializeField] private List<AudioLayerPlayer> _layers;
+        [SerializeField] private AudioLayerPlayer _specialLayer;
 
         private Dictionary<int, AudioLayerPlayer> _idToLayer;
 
@@ -24,11 +25,15 @@ namespace Minigame.Games.Audio
         private void OnEnable()
         {
             MinigameManager.OnComplete += HandleMinigameWin;
+            MinigameManager.OnLoadSpecial += HandleLoadSpecial;
+            MinigameManager.OnUnloadSpecial += HandleUnloadSpecial;
         }
 
         private void OnDisable()
         {
             MinigameManager.OnComplete -= HandleMinigameWin;
+            MinigameManager.OnLoadSpecial -= HandleLoadSpecial;
+            MinigameManager.OnUnloadSpecial -= HandleUnloadSpecial;
         }
 
         public void Initialise()
@@ -36,7 +41,10 @@ namespace Minigame.Games.Audio
             foreach (var player in _layers)
             {
                 player.Play(player.Id < 0);
+                player.VolumeMultiplier = 1;
+                _specialLayer.VolumeMultiplier = 0;
             }
+            _specialLayer.Play(false);
         }
 
         private void HandleMinigameWin(Minigame game)
@@ -48,6 +56,28 @@ namespace Minigame.Games.Audio
                 return;
             }
             _idToLayer[gameId].Unmute();
+        }
+
+        private void HandleLoadSpecial()
+        {
+            foreach (var player in _layers)
+            {
+                player.VolumeMultiplier = 0;
+            }
+
+            _specialLayer.VolumeMultiplier = 1;
+            _specialLayer.Unmute();
+        }
+
+        private void HandleUnloadSpecial()
+        {
+            foreach (var player in _layers)
+            {
+                player.VolumeMultiplier = 1;
+            }
+
+            _specialLayer.VolumeMultiplier = 0;
+            _specialLayer.Mute();
         }
     }
 }

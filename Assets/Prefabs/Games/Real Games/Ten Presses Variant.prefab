@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ten Presses Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8832868532721431084, guid: a0224024430bda24e9a92484da60566b, type: 3}
+      propertyPath: _targetPresses
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8832868532977433323, guid: a0224024430bda24e9a92484da60566b, type: 3}
       propertyPath: TypeID
       value: 3

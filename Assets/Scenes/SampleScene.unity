@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 4
 --- !u!82 &111261880
 AudioSource:
@@ -1512,7 +1512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -17.3, y: 21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.6662}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66611}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &114510059
@@ -1925,7 +1925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 7
 --- !u!82 &152481194
 AudioSource:
@@ -2584,7 +2584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863150171567450718, guid: 57b96ce7604af31499a3120c02c52a27, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 107.6662
+      value: 107.66611
       objectReference: {fileID: 0}
     - target: {fileID: 1863150171567450718, guid: 57b96ce7604af31499a3120c02c52a27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4326,7 +4326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 6
 --- !u!82 &439332555
 AudioSource:
@@ -5994,7 +5994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 2
 --- !u!82 &621754142
 AudioSource:
@@ -6137,7 +6137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 1
 --- !u!82 &650711593
 AudioSource:
@@ -6280,7 +6280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 3
 --- !u!82 &667211245
 AudioSource:
@@ -6423,7 +6423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 5
 --- !u!82 &668708972
 AudioSource:
@@ -7889,7 +7889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -17.3, y: 21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.6662}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66611}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &796834462
@@ -7999,7 +7999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 1
 --- !u!82 &807338234
 AudioSource:
@@ -8228,6 +8228,7 @@ MonoBehaviour:
   - {fileID: 439332554}
   - {fileID: 152481193}
   - {fileID: 1893339473}
+  _specialLayer: {fileID: 1813830185}
 --- !u!4 &837088408
 Transform:
   m_ObjectHideFlags: 0
@@ -8939,7 +8940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 4
 --- !u!82 &1035441630
 AudioSource:
@@ -9124,7 +9125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 3
 --- !u!82 &1054818484
 AudioSource:
@@ -12171,7 +12172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -17.3, y: 21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.6662}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66611}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &1508261946
@@ -12700,7 +12701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 5
 --- !u!82 &1574495788
 AudioSource:
@@ -13257,7 +13258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: -1
 --- !u!82 &1637811107
 AudioSource:
@@ -13410,9 +13411,7 @@ MonoBehaviour:
   - {fileID: 4596908622614226788, guid: 083903d1386c6f349b046caf38e63098, type: 3}
   - {fileID: 3080076533309848402, guid: ea93a32e00f952a4da979a63d99acc6f, type: 3}
   - {fileID: 2879485951891531388, guid: 0e550b530503f1b4cb159ad597f815bc, type: 3}
-  - {fileID: 8556755959327342865, guid: 516a3660be573f44ca6227f67e05a56a, type: 3}
   - {fileID: 416707878509500936, guid: 80a8b7b1ded28aa4a8c2a50082038929, type: 3}
-  - {fileID: 4859115687452365787, guid: 55be93b9f2c00224a80687aa5b991ad6, type: 3}
   - {fileID: 5178564279987037208, guid: 06fb8c22b76eebb43a175143a7fedc2c, type: 3}
   - {fileID: 5623409503013089351, guid: 40267911286ff534f9649a01c153206e, type: 3}
   - {fileID: 505397042871955722, guid: 692a4a72c8b89044285292a5dac72fa1, type: 3}
@@ -13424,6 +13423,7 @@ MonoBehaviour:
   - {fileID: 2602979392678553378, guid: b26f1d8efc4faa44f8d7767297a74926, type: 3}
   - {fileID: 1103948711257230285, guid: 5b0053e37ba15b4498371c0a6f8bf7e9, type: 3}
   - {fileID: 607104725944697270, guid: 3eb8b6d9ad6c55648aa86d971c9e9008, type: 3}
+  - {fileID: 2648514138877063922, guid: 5ca23ccda37d94945a292042f4ff4e6c, type: 3}
   - {fileID: 910341467553736056, guid: fc65645eb3f98e64ba2a9c202c0afaee, type: 3}
   - {fileID: 3808712859363371703, guid: 0d779c45fec19824391970e8ae0d1265, type: 3}
   - {fileID: 8832868532977433323, guid: 8be4c5097afb8bf4ea15644c26550325, type: 3}
@@ -13432,6 +13432,9 @@ MonoBehaviour:
   - {fileID: 8832868532977433323, guid: d118cdcad738efa458e9ac57551afe76, type: 3}
   - {fileID: 4493533266476033574, guid: adee468328ca7c247803ed18d91dd6f2, type: 3}
   - {fileID: 1103948711257230285, guid: d8c7ef2051226294098c31f79b521702, type: 3}
+  - {fileID: 9222010013520270408, guid: 564c119f03963ff4ab77ddd08ed962ce, type: 3}
+  - {fileID: 5134747046746150010, guid: 54a6b1d9d60d38c4eae73458a5b1a6a9, type: 3}
+  - {fileID: 8832868532977433323, guid: 461264681407b23408df5bfe836d7f0f, type: 3}
   - {fileID: 926006950467042137, guid: f0bc4e5bdefb72c43ab57f05dd7232a8, type: 3}
   - {fileID: 1462840096803142446, guid: 8981115478c9c9c4f94b6849fb71903d, type: 3}
   - {fileID: 2082230505016964687, guid: b504dcc923d11c14baf547b3fd9b68af, type: 3}
@@ -14328,7 +14331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 1.13
+  _fadeStrength: 1.2
   _id: 10
 --- !u!82 &1813830186
 AudioSource:
@@ -14471,7 +14474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 2
 --- !u!82 &1816080507
 AudioSource:
@@ -15082,7 +15085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 0
 --- !u!82 &1871388122
 AudioSource:
@@ -15236,7 +15239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 7
 --- !u!82 &1893339474
 AudioSource:
@@ -15522,7 +15525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -17.3, y: 21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.6662}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66611}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &1905648432
@@ -16505,7 +16508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 0
 --- !u!82 &2057457166
 AudioSource:
@@ -16640,7 +16643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -17.3, y: 21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.6662}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66611}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &2064182633
@@ -16931,7 +16934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 0.53
+  _fadeStrength: 0.75
   _id: 6
 --- !u!82 &2108215485
 AudioSource:

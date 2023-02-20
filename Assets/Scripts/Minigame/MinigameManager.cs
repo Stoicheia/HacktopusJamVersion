@@ -21,6 +21,9 @@ namespace Minigame
         public static Action<Minigame> OnUnload;
         public static Action<Minigame> OnComplete;
         
+        public static Action OnLoadSpecial;
+        public static Action OnUnloadSpecial;
+        
         [SerializeField] private List<GameLayout> _layouts;
         [SerializeField] private List<Minigame> _gamePrefabs;
         [SerializeField] private List<GameRoundPair> _forcedGamePrefabs;
@@ -139,6 +142,7 @@ namespace Minigame
                 {
                     _inputs.InputOwner = game;
                     _specialCover.gameObject.SetActive(true);
+                    OnLoadSpecial?.Invoke();
                 }
                 _forcingLayout.TransitionInSpecial(game);
             }
@@ -198,6 +202,7 @@ namespace Minigame
             {
                 _inputs.InputOwner = null;
                 _specialCover.gameObject.SetActive(false);
+                OnUnloadSpecial?.Invoke();
             }
             var gl = _gameToLayout[gameInstance];
             if (won)
