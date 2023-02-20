@@ -21,6 +21,7 @@ namespace Minigame.Games
 
         private List<IdentityElement> _currentlySelected;
         private List<IdentityElement> _correct;
+        public AudioSource _audio;
 
         private bool _acceptingInputs;
 
@@ -40,6 +41,7 @@ namespace Minigame.Games
                 if (_inputs.GetKeyDown(o.Key) && _acceptingInputs)
                 {
                     o.Toggle();
+                    _audio.PlayOneShot(_audio.clip);
                 }
             }
             _currentlySelected = _options.Select(x => x.SelectedElement).ToList();

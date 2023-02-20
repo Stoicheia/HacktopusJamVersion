@@ -51,7 +51,7 @@ namespace Minigame.Games
                     else
                     {
                         frameCount = 0;
-                        _audio.Play();
+                        _audio.PlayOneShot(_audio.clip);
                     }
                     _img.sprite = frames[frameCount];
                 }
