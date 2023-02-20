@@ -83,6 +83,7 @@ namespace Minigame.Games
 
         void DisplayTime(float timeToDisplay)
         {
+            Debug.Log("Changing Display");
             if(timeToDisplay < 1)
             {
                 timeToDisplay = 1;
