@@ -33,6 +33,8 @@ namespace Minigame.Games.Core
         private bool _paused;
         private bool _finished;
 
+        private bool _started;
+
         private void Awake()
         {
             //DontDestroyOnLoad(gameObject);
@@ -40,6 +42,7 @@ namespace Minigame.Games.Core
 
         private IEnumerator Start()
         {
+            _started = false;
             _leaderboardButton.interactable = false;
             _inactiveLeaderboardImage.gameObject.SetActive(true);
             _activeLeaderboardImage.gameObject.SetActive(false);
@@ -70,6 +73,10 @@ namespace Minigame.Games.Core
 
         private void Update()
         {
+            if (!_started && Input.GetKeyDown(KeyCode.Return))
+            {
+                BeginGameSequence();
+            }
             if (Input.GetKeyDown(_restartButton))
             {
                 Restart();
@@ -147,6 +154,7 @@ namespace Minigame.Games.Core
 
         private IEnumerator StartGameSequence()
         {
+            _started = true;
             _countdown.gameObject.SetActive(true);
             _countdown.Play("countdown");
             yield return new WaitForSeconds(3f);
