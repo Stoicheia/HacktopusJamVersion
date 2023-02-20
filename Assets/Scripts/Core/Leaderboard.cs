@@ -37,7 +37,7 @@ namespace Minigame.Games.Core
             for (int i = 0; i < members.Length; i++)
             {
                 _names[i].text = members[i].player.name == "" ? members[i].player.id.ToString() : members[i].player.name;
-                _scores[i].text = members[i].score.ToString();
+                _scores[i].text = PrettyScore(members[i].score);
                 _places[i].text = $"#{i+1}.";
             }
 
@@ -47,6 +47,14 @@ namespace Minigame.Games.Core
                 _scores[i].text = "";
                 _places[i].text = "";
             }
+        }
+
+        private string PrettyScore(int cs)
+        {
+            int minutes = cs / 6000;
+            int seconds = (cs / 100) % 60;
+            int centis = cs % 100;
+            return $"{minutes}:{seconds}.{centis}";
         }
     }
 }

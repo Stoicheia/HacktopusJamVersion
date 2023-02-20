@@ -60,7 +60,7 @@ namespace Minigame.Games.Core
             });
             yield return new WaitWhile(() => done == false);
             string playerID = PlayerPrefs.GetString("PlayerID"); 
-            LootLockerSDKManager.SubmitScore(playerID, (int)_finalTime, "time", (r) =>
+            LootLockerSDKManager.SubmitScore(playerID, (int)(_finalTime*100), "time", (r) =>
             {
                 if (r.statusCode == 200)
                 {
