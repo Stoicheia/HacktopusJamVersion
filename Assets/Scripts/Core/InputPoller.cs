@@ -23,6 +23,11 @@ namespace Minigame.Games.Core
             return (InputsEnabled && Input.GetKeyDown(k) && InputOwner == null);
         }
 
+        public bool GetKeyDownLockedPure(KeyCode k)
+        {
+            return (Input.GetKeyDown(k) && InputOwner == null);
+        }
+
         public bool GetKeyDown(KeyCode k, Minigame m)
         {
             return (InputsEnabled && Input.GetKeyDown(k) 

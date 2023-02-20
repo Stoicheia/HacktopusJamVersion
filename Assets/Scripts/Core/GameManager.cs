@@ -79,13 +79,13 @@ namespace Minigame.Games.Core
             {
                 BeginGameSequence();
             }
-            if (Input.GetKeyDown(_restartButton))
+            if (_inputs.GetKeyDownLockedPure(_restartButton))
             {
                 Restart();
             }
             foreach (var k in _pauseButtons)
             {
-                if (Input.GetKeyDown(k))
+                if (_inputs.GetKeyDownLockedPure(k))
                 {
                     if (!_paused)
                     {
@@ -129,7 +129,8 @@ namespace Minigame.Games.Core
         {
             StartCoroutine(StartGameSequence());
             _startScreen.gameObject.SetActive(false);
-            _audioCountdown.Play();
+            if(_audioCountdown != null)
+                _audioCountdown.Play();
         }
 
         private void BeginGame()
