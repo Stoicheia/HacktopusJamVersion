@@ -54,7 +54,7 @@ namespace Minigame.Games.Core
             int minutes = cs / 6000;
             int seconds = (cs / 100) % 60;
             int centis = cs % 100;
-            return $"{minutes:00}:{seconds:00}.{centis:00}";
+            return $"{minutes}:{seconds:00}.{centis:00}";
         }
     }
 }

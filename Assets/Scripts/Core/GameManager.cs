@@ -15,6 +15,7 @@ namespace Minigame.Games.Core
     {
         [SerializeField] private MinigameManager _minigames;
         [SerializeField] private List<KeyCode> _pauseButtons;
+        [SerializeField] private KeyCode _restartButton;
         [SerializeField] private InputPoller _inputs;
         [SerializeField] private RectTransform _pauseMenu;
         [SerializeField] private EndScreen _endScreen;
@@ -64,6 +65,10 @@ namespace Minigame.Games.Core
 
         private void Update()
         {
+            if (Input.GetKeyDown(_restartButton))
+            {
+                Restart();
+            }
             foreach (var k in _pauseButtons)
             {
                 if (Input.GetKeyDown(k))
