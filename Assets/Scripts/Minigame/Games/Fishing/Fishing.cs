@@ -15,17 +15,25 @@ namespace Minigame.Games
         public float rodSpeed;
         public bool isAlive;
 
+        [SerializeField] private List<FishSpawner> _spawners;
+
         private float endLocation => endObject.position.y;
         private float _progression;
+
+        public float Scale => _scale;
         protected override void Start()
         {
             base.Start();
             startPos = transform.position;
-            endPos = new Vector2(startPos.x, endObject.position.y);
+            endPos = endObject.position;
             isAlive = true;
         }
         private void Update()
         {
+            foreach (var s in _spawners)
+            {
+                s.fishing = this;
+            }
             if(isAlive == true)
             {
                 if (Input.GetKey(_pressKey))

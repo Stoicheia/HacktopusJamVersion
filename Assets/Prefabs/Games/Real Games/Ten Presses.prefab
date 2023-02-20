@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pressKey: 32
-  _targetPresses: 10
+  _targetPresses: 12
   _pressesLeftField: {fileID: 5644514514535298541}
   _audio: {fileID: 2000234670116259233}
 --- !u!4 &5906646933366940015 stripped

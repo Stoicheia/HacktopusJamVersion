@@ -54,6 +54,7 @@ MonoBehaviour:
   fishPrefab: {fileID: 7104414675998722500, guid: 329151c23c7fff045b26b47a7af1faf6, type: 3}
   randomTimer: 0
   isLeft: 0
+  fishing: {fileID: 0}
   top: {fileID: 7191698459113774655}
   bottom: {fileID: 5698376953173734332}
 --- !u!1 &1093968692467272974
@@ -1213,6 +1214,9 @@ MonoBehaviour:
   endObject: {fileID: 5041804018352296149}
   rodSpeed: 0.55
   isAlive: 0
+  _spawners:
+  - {fileID: 1887939171373697415}
+  - {fileID: 2696345210133890777}
 --- !u!61 &3721035177970713237
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1644,6 +1648,7 @@ MonoBehaviour:
   fishPrefab: {fileID: 7104414675998722500, guid: 329151c23c7fff045b26b47a7af1faf6, type: 3}
   randomTimer: 0
   isLeft: 0
+  fishing: {fileID: 0}
   top: {fileID: 2234455234572349459}
   bottom: {fileID: 5514194655492051083}
 --- !u!1 &6371007499729835616
