@@ -53,5 +53,10 @@ namespace Minigame.Games.Audio
             Volume = 1;
             if (force) _audio.volume = 1;
         }
+
+        public void SetTime(float t)
+        {
+            _audio.time = t;
+        }
 }
 }

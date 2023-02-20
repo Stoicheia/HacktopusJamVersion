@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,6 +46,7 @@ namespace Minigame.Games.Audio
                 _specialLayer.VolumeMultiplier = 0;
             }
             _specialLayer.Play(false);
+            StartCoroutine(ResyncAfter3());
         }
 
         private void HandleMinigameWin(Minigame game)
@@ -78,6 +80,20 @@ namespace Minigame.Games.Audio
 
             _specialLayer.VolumeMultiplier = 0;
             _specialLayer.Mute();
+        }
+
+        private IEnumerator ResyncAfter3()
+        {
+            yield return new WaitForSeconds(3);
+            Resync();
+        }
+
+        private void Resync()
+        {
+            foreach (var player in _layers)
+            {
+                player.SetTime(3);
+            }
         }
     }
 }

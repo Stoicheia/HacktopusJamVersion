@@ -34,7 +34,7 @@ namespace Minigame.Games.Core
             set
             {
                 _bestFinalTime = value;
-                _bestTimeField.text = $"{_bestFinalTime / 60:00}:{_bestFinalTime % 60:00}";
+                _bestTimeField.text = $"{(int)_bestFinalTime / 60:00}:{(int)_bestFinalTime % 60:00}";
             } 
         }
         [SerializeField] private TextMeshProUGUI _timeField;
