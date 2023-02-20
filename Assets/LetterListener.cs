@@ -11,10 +11,12 @@ namespace Minigame.Games
         public bool isListening;
         public List<char> selectedString;
         public float completion;
+        public float countdown;
 
         public TextMeshProUGUI Instructional;
 
         private List<KeyCode> _listenToTheseKeycodes;
+        public AudioSource typingSource;
 
         protected override void Start()
         {
@@ -22,6 +24,8 @@ namespace Minigame.Games
             isListening = false;
             selectedString = null;
             completion = 0f;
+            countdown = 0.999f;
+            SetProgress(countdown);
 
             _listenToTheseKeycodes = new List<KeyCode>()
             {
@@ -49,19 +53,25 @@ namespace Minigame.Games
 
             if(isListening == true)
             {
+                countdown -= Time.deltaTime/10;
+                SetProgress(countdown);
                 foreach(KeyCode vKey in _listenToTheseKeycodes)
                 {
                     if(_inputs.GetKeyDown(vKey))
                     {
                         if(vKey.ToString() == selectedString[0].ToString())
                         {
-
+                            Debug.Log("Letter Pressed");
                             letters[0].text.color = Color.green;
                             letters[0].text.text = letters[0].selectedLetter;
                             letters.RemoveAt(0);
                             selectedString.RemoveAt(0);
+                            typingSource.Play();
                             completion += 1f;
-                            SetProgress((float)completion/3);
+                            if(completion == 3f)
+                            {
+                                SetProgress(1f);
+                            }
                         }
                         else
                         {
@@ -72,6 +82,11 @@ namespace Minigame.Games
                         }
                     }
                 }
+            }
+
+            if(countdown <= 0)
+            {
+                Fail();
             }
 
         }

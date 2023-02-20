@@ -16,6 +16,8 @@ namespace Minigame
         [SerializeField] private List<GameLayout> _layouts;
         [SerializeField] private List<Minigame> _gamePrefabs;
         [SerializeField] private Camera _camera;
+        [SerializeField] private GameObject _audio;
+
 
         private Dictionary<Minigame, bool> _gameCompleted;
         private Dictionary<Minigame, bool> _gameLoaded;
@@ -160,11 +162,13 @@ namespace Minigame
         {
             _gameCompleted[instance.Prefab] = true;
             UnloadGame(instance, true);
+            _audio.transform.GetChild(0).GetComponent<AudioSource>().Play();
         }
 
         private void HandleFail(Minigame instance)
         {
             UnloadGame(instance, false);
+            _audio.transform.GetChild(1).GetComponent<AudioSource>().Play();
         }
     }
 }
