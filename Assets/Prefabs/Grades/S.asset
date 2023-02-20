@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: S
   m_EditorClassIdentifier: 
   Text: S
-  MinTimeSeconds: 30
-  Description: An epic hacker is you!
+  MinTimeSeconds: 40
+  Description: The banker bows before the tentacle.
   Color: {r: 0.8867924, g: 0.7941999, b: 0.13887507, a: 1}

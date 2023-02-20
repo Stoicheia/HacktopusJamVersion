@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: B
   m_EditorClassIdentifier: 
   Text: B
-  MinTimeSeconds: 75
-  Description: Nice!
+  MinTimeSeconds: 100
+  Description: A highly medium effort.
   Color: {r: 0.019437587, g: 0.5440017, b: 0.7924528, a: 1}

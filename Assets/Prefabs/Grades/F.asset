@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: F
   MinTimeSeconds: 5000
-  Description: The hacker's life ain't for you
+  Description: The hacker's life ain't for you.
   Color: {r: 0.33962262, g: 0.18134567, b: 0.22684808, a: 1}
