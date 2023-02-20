@@ -18,7 +18,7 @@ namespace Minigame
         {
             _timerField.text = $"{_manager.Timer / 60:00}:{_manager.Timer % 60:00}";
             _progressField.text = $"{_manager.MinigamesCompleted}/{_manager.MinigamesCount}";
-            _progressPercentField.text = $"{(float)_manager.MinigamesCompleted/_manager.MinigamesCount:0%}%";
+            _progressPercentField.text = $"{(float)_manager.MinigamesCompleted/_manager.MinigamesCount:0%}";
             _progressImage.fillAmount = (float) _manager.MinigamesCompleted / _manager.MinigamesCount;
         }
     }

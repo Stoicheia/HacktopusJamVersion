@@ -20,7 +20,8 @@ namespace Minigame.Games.Core
         [SerializeField] private RectTransform _startScreen;
         [SerializeField] private Animator _countdown;
         [SerializeField] private Button _leaderboardButton;
-        [SerializeField] private TextMeshProUGUI _leaderboardText;
+        [SerializeField] private Image _activeLeaderboardImage;
+        [SerializeField] private Image _inactiveLeaderboardImage;
 
         private bool _paused;
         private bool _finished;
@@ -35,7 +36,8 @@ namespace Minigame.Games.Core
         private IEnumerator Start()
         {
             _leaderboardButton.interactable = false;
-            _leaderboardText.text = "Loading Leaderboard";
+            _inactiveLeaderboardImage.gameObject.SetActive(true);
+            _activeLeaderboardImage.gameObject.SetActive(false);
             
             _finished = false;
             BestTime = Single.PositiveInfinity;
@@ -47,7 +49,9 @@ namespace Minigame.Games.Core
                 if (response.success) {
                     PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
                     _leaderboardButton.interactable = true;
-                    _leaderboardText.text = "View Leaderboard";
+                    _inactiveLeaderboardImage.gameObject.SetActive(false);
+                    _activeLeaderboardImage.gameObject.SetActive(true);
+
                     done = true;
                 } else {
                     done = true;
