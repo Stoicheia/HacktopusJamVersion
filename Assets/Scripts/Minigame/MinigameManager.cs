@@ -9,6 +9,9 @@ namespace Minigame
 {
     public class MinigameManager : MonoBehaviour
     {
+        public static Action<Minigame> OnLoad;
+        public static Action<Minigame> OnUnload;
+        
         [SerializeField] private List<GameLayout> _layouts;
         [SerializeField] private List<Minigame> _gamePrefabs;
         [SerializeField] private Camera _camera;
@@ -122,6 +125,7 @@ namespace Minigame
             gameInstance.Prefab = game;
             _gameToLayout[gameInstance] = gl;
             _gameLoaded[game] = true;
+            OnLoad?.Invoke(game);
         }
 
         private void UnloadGame(Minigame gameInstance, bool won)
@@ -138,6 +142,7 @@ namespace Minigame
             _gameToLayout.Remove(gameInstance);
             Destroy(gameInstance.gameObject);
             _gameLoaded[gameInstance.Prefab] = false;
+            OnUnload?.Invoke(gameInstance.Prefab);
         }
 
         private Minigame GetRandomUnfinishedGame()

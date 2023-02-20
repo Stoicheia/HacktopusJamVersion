@@ -48,6 +48,9 @@ namespace Minigame.Games.Core
             _startScreen.gameObject.SetActive(true);
             
             bool done = false;
+
+            yield return new WaitForSeconds(0.1f);
+            
             LootLockerSDKManager.StartGuestSession((response) => {
                 if (response.success) {
                     PlayerPrefs.SetString("PlayerID", response.player_id.ToString());

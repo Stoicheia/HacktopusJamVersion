@@ -19,15 +19,7 @@ public class BackgroundAnimator : MonoBehaviour
         else
         {
             counter = frameLength;
-            if(frameCount < 3)
-            {
-                frameCount += 1;
-            }
-            else
-            {
-                frameCount = 0;
-            }
-            _img.sprite = frames[frameCount];
+            _img.sprite = frames[frameCount++ % frames.Count];
         }
     }
 }
