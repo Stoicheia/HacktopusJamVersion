@@ -13,6 +13,7 @@ namespace Minigame.Games
         [SerializeField] private TextMeshProUGUI _pressesLeftField;
 
         private int _currentPresses;
+        public AudioSource _audio;
         protected override void Start()
         {
             base.Start();
@@ -23,6 +24,7 @@ namespace Minigame.Games
             {
                 _currentPresses++;
                 SetProgress((float)_currentPresses/_targetPresses);
+                _audio.PlayOneShot(_audio.clip);
             }
 
             _pressesLeftField.text = (_targetPresses - _currentPresses).ToString();

@@ -14,6 +14,7 @@ namespace Minigame.Games
         private Rigidbody2D _rb;
         private Collider2D _col;
         private SkewedImage _img;
+        public AudioSource _audio;
         public List<Sprite> sprites = new List<Sprite>();
         public float spriteFramerate = 0.3f;
         public float frameCounter = 0.3f;
@@ -58,6 +59,7 @@ namespace Minigame.Games
             Vector3 newPosition = _rb.position + (Vector2)transform.TransformDirection (GameScale*_velocity*Time.deltaTime);
             _rb.MovePosition (newPosition);
             _img.sprite = sprites[2];
+            
 
             if(frameCounter > 0)
             {
@@ -89,6 +91,7 @@ namespace Minigame.Games
             Speed *= 1.3f;
             _jumpedThisFrame = true;
             _isGrounded = false;
+            _audio.Play();
         }
 
         public void Die()

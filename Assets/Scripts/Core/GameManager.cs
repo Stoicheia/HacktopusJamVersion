@@ -29,6 +29,7 @@ namespace Minigame.Games.Core
 
         [SerializeField] private AudioLayersManager _audioLayers;
         [SerializeField] private PersistentStats _persistent;
+        [SerializeField] private AudioSource _audioSettings;
 
         private bool _paused;
         private bool _finished;
@@ -87,6 +88,7 @@ namespace Minigame.Games.Core
                 {
                     if (!_paused)
                     {
+                        _audioSettings.PlayOneShot(_audioSettings.clip);
                         _pauseMenu.gameObject.SetActive(true);
                         _paused = true;
                         _inputs.InputsEnabled = false;

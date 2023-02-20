@@ -7,6 +7,7 @@ namespace Minigame.Games
     public class Fishing : MinigameGameplay
     {
         [Header("Controls")] [SerializeField] private KeyCode _pressKey;
+        public AudioSource _audio;
 
         public Vector2 startPos;
         public Vector2 endPos;
@@ -31,7 +32,14 @@ namespace Minigame.Games
                 {
                     _progression += rodSpeed * Time.deltaTime;
                     transform.position = Vector2.Lerp(startPos, endPos, _progression);
+                    Debug.Log("Playing Audio");
                 }
+
+                if(Input.GetKeyDown(_pressKey))
+                {
+                    _audio.PlayOneShot(_audio.clip);
+                }
+
                 SetProgress((float) _progression);
             }
             

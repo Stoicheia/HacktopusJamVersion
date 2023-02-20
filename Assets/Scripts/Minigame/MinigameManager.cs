@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
@@ -16,7 +16,8 @@ namespace Minigame
         [SerializeField] private List<GameLayout> _layouts;
         [SerializeField] private List<Minigame> _gamePrefabs;
         [SerializeField] private Camera _camera;
-        [SerializeField] private GameObject _audio;
+        [SerializeField] private AudioSource _audioSuccess;
+        [SerializeField] private AudioSource _audioFail;
 
 
         private Dictionary<Minigame, bool> _gameCompleted;
@@ -162,15 +163,13 @@ namespace Minigame
         {
             _gameCompleted[instance.Prefab] = true;
             UnloadGame(instance, true);
-            if(_audio!=null)
-                _audio.transform.GetChild(0).GetComponent<AudioSource>().Play();
+            _audioSuccess.PlayOneShot(_audioSuccess.clip);
         }
 
         private void HandleFail(Minigame instance)
         {
             UnloadGame(instance, false);
-            if(_audio!=null)
-                _audio.transform.GetChild(1).GetComponent<AudioSource>().Play();
+            _audioFail.PlayOneShot(_audioFail.clip);
         }
     }
 }
