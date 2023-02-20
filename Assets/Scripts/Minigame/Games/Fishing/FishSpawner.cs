@@ -25,7 +25,7 @@ public class FishSpawner : MonoBehaviour
         else
         {
             SpawnFish();
-            NewRandomTimer(2f, 6f);
+            NewRandomTimer(2f, 5f);
         }
     }
 

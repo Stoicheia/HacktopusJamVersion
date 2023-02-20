@@ -162,13 +162,15 @@ namespace Minigame
         {
             _gameCompleted[instance.Prefab] = true;
             UnloadGame(instance, true);
-            _audio.transform.GetChild(0).GetComponent<AudioSource>().Play();
+            if(_audio!=null)
+                _audio.transform.GetChild(0).GetComponent<AudioSource>().Play();
         }
 
         private void HandleFail(Minigame instance)
         {
             UnloadGame(instance, false);
-            _audio.transform.GetChild(1).GetComponent<AudioSource>().Play();
+            if(_audio!=null)
+                _audio.transform.GetChild(1).GetComponent<AudioSource>().Play();
         }
     }
 }

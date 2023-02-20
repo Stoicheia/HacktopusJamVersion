@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed398bb4716c2984a8357ee71f5249ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeID: 4
+  TypeID: 2
   <Game>k__BackingField: {fileID: 93235636523903423}
   _gameCanvas: {fileID: 2611530021246978417}
   _ui: {fileID: 615163382350210491}

@@ -487,7 +487,7 @@ MonoBehaviour:
   bg: {fileID: 5906646931997403536}
   timeOverlay: {fileID: 3117966368638371909}
   finalCdText: {fileID: 3560843272721109603}
-  finalTiming: 1.6
+  finalTiming: 1.4
 --- !u!1 &5308032073798754715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed398bb4716c2984a8357ee71f5249ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeID: 6
+  TypeID: 1
   <Game>k__BackingField: {fileID: 6693496816429856602}
   _gameCanvas: {fileID: 5906646932273854551}
   _ui: {fileID: 9029677080248013981}

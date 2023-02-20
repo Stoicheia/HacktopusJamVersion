@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed398bb4716c2984a8357ee71f5249ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeID: 5
+  TypeID: 0
   <Game>k__BackingField: {fileID: 7533999972361522891}
   _gameCanvas: {fileID: 1337328575847168519}
   _ui: {fileID: 4483436922997790413}
@@ -1527,6 +1527,7 @@ MonoBehaviour:
   isListening: 0
   selectedString: 
   completion: 0
+  countdown: 0
   Instructional: {fileID: 1108997487945114952}
   typingSource: {fileID: 8721895281564473483}
 --- !u!1 &7533999972833753874
