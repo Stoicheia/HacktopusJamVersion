@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Minigame.Games.Identity;
@@ -15,7 +16,8 @@ namespace Minigame.Games
         [SerializeField] private List<IdentityElement> _possibleFirst;
         [SerializeField] private List<IdentityElement> _possibleSecond;
         [SerializeField] private List<IdentityElement> _possibleThird;
-        [SerializeField] private List<IdentityElement> _possibleFourth;
+
+        [SerializeField] private RectTransform _correctGraphic;
 
         private List<IdentityElement> _currentlySelected;
         private List<IdentityElement> _correct;
@@ -25,6 +27,7 @@ namespace Minigame.Games
             base.Start();
             GenerateCorrect();
             _target.Load(_correct);
+            _correctGraphic.gameObject.SetActive(false);
         }
 
         private void Update()
@@ -38,7 +41,15 @@ namespace Minigame.Games
             }
             _currentlySelected = _options.Select(x => x.SelectedElement).ToList();
             float correct = _target.CheckCorrectness(_currentlySelected);
-            SetProgress(correct);
+            if (correct >= 1)
+            {
+                SetProgress(0.99f);
+                StartCoroutine(WinSequence(0.75f));
+            }
+            else
+            {
+                SetProgress(correct);
+            }
         }
 
         private void GenerateCorrect()
@@ -47,8 +58,14 @@ namespace Minigame.Games
             elements.Add(_possibleFirst[Random.Range(1, _possibleFirst.Count)]);
             elements.Add(_possibleSecond[Random.Range(0, _possibleSecond.Count)]);
             elements.Add(_possibleThird[Random.Range(0, _possibleThird.Count)]);
-            elements.Add(_possibleFourth[Random.Range(0, _possibleFourth.Count)]);
             _correct = elements;
+        }
+
+        private IEnumerator WinSequence(float f)
+        {
+            _correctGraphic.gameObject.SetActive(true);
+            yield return new WaitForSeconds(f);
+            SetProgress(1.0f);
         }
     }
 }
