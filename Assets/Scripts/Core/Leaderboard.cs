@@ -14,6 +14,8 @@ namespace Minigame.Games.Core
         [SerializeField] private List<TextMeshProUGUI> _names;
         [SerializeField] private List<TextMeshProUGUI> _scores;
         [SerializeField] private List<TextMeshProUGUI> _places;
+        [SerializeField] private List<TextMeshProUGUI> _gradeFields;
+        [SerializeField] private Grader _grader;
 
         private void OnEnable()
         {
@@ -39,6 +41,8 @@ namespace Minigame.Games.Core
                 _names[i].text = members[i].player.name == "" ? members[i].player.id.ToString() : members[i].player.name;
                 _scores[i].text = PrettyScore(members[i].score);
                 _places[i].text = $"#{i+1}.";
+                _gradeFields[i].text = _grader.CalculateGrade(members[i].score/100).Text;
+                _gradeFields[i].color = _grader.CalculateGrade(members[i].score/100).Color;
             }
 
             for (int i = members.Length; i < _names.Count; i++)
@@ -47,6 +51,7 @@ namespace Minigame.Games.Core
                 _scores[i].text = "";
                 _places[i].text = "";
             }
+
         }
 
         private string PrettyScore(int cs)

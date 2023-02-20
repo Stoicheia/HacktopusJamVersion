@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: D
   m_EditorClassIdentifier: 
   Text: D
-  MinTimeSeconds: 200
+  MinTimeSeconds: 240
   Description: Well at least you didn't get the lowest grade.
   Color: {r: 0.6132076, g: 0.061320774, b: 0.061320774, a: 1}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: A
   m_EditorClassIdentifier: 
   Text: A
-  MinTimeSeconds: 70
+  MinTimeSeconds: 90
   Description: An epic hacker is you!
   Color: {r: 0.0581702, g: 0.7169812, b: 0.0627495, a: 1}

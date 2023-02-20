@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bf4a1585be34fb19c2b2e25b0ad5b20, type: 3}
-  m_Name: C
+  m_Name: SS
   m_EditorClassIdentifier: 
-  Text: C
-  MinTimeSeconds: 180
-  Description: C is for COOL (Crappy Octopus of Lameness)
-  Color: {r: 0.5660378, g: 0.03524389, b: 0.54076195, a: 1}
+  Text: SS
+  MinTimeSeconds: 50
+  Description: How the hell did you do this? Contact the devs for a prize!
+  Color: {r: 0.8862745, g: 0.54157716, b: 0.13725488, a: 1}
