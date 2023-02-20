@@ -21,6 +21,7 @@ namespace Minigame.Games
 
         private List<KeyCode> _listenToTheseKeycodes;
         public AudioSource typingSource;
+        public AudioSource _audioTicking;
 
         private bool _ended;
 
@@ -133,6 +134,7 @@ namespace Minigame.Games
         {
             yield return new WaitForSeconds(s);
             Instructional.text = "PRESS IN ORDER";
+            _audioTicking.Play();
         }
 
         private IEnumerator TransferOwnership(int frames)

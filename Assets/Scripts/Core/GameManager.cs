@@ -30,6 +30,7 @@ namespace Minigame.Games.Core
         [SerializeField] private AudioLayersManager _audioLayers;
         [SerializeField] private PersistentStats _persistent;
         [SerializeField] private AudioSource _audioSettings;
+        [SerializeField] private AudioSource _audioCountdown;
 
         private bool _paused;
         private bool _finished;
@@ -128,6 +129,7 @@ namespace Minigame.Games.Core
         {
             StartCoroutine(StartGameSequence());
             _startScreen.gameObject.SetActive(false);
+            _audioCountdown.Play();
         }
 
         private void BeginGame()
