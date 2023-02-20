@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed398bb4716c2984a8357ee71f5249ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeID: 3
+  TypeID: 4
   <Game>k__BackingField: {fileID: 5939107887133896093}
   _gameCanvas: {fileID: 2611530021246978417}
   _ui: {fileID: 615163382350210491}
@@ -472,8 +472,7 @@ MonoBehaviour:
   _allUIImages:
   - {fileID: 7748761361999489249}
   - {fileID: 7079949724094923411}
-  _allUIText:
-  - {fileID: 0}
+  _allUIText: []
   _allGameplayElements:
   - {fileID: 6009040807261884266}
   _progressIndicator: {fileID: 7079949724094923411}

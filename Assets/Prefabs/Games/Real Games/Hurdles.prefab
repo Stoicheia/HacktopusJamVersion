@@ -1455,8 +1455,7 @@ MonoBehaviour:
   - {fileID: 2184111437132388807}
   - {fileID: 1695513328533189557}
   - {fileID: 7055663089556177351}
-  _allUIText:
-  - {fileID: 0}
+  _allUIText: []
   _allGameplayElements:
   - {fileID: 2784001263863299660}
   _progressIndicator: {fileID: 1695513328533189557}

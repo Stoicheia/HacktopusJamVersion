@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Animations;
 using DG.Tweening;
 using LootLocker.Requests;
 using TMPro;
@@ -22,6 +23,7 @@ namespace Minigame.Games.Core
         [SerializeField] private Button _leaderboardButton;
         [SerializeField] private Image _activeLeaderboardImage;
         [SerializeField] private Image _inactiveLeaderboardImage;
+        [SerializeField] private MonitorFlyby _flyby;
 
         private bool _paused;
         private bool _finished;
@@ -117,6 +119,7 @@ namespace Minigame.Games.Core
 
         public void End()
         {
+            _flyby.Stop();
             _minigames.Stop();
             
             _endScreen.gameObject.SetActive(true);
@@ -139,6 +142,7 @@ namespace Minigame.Games.Core
             yield return new WaitForSeconds(3.5f);
             _countdown.gameObject.SetActive(false);
             BeginGame();
+            _flyby.Begin();
         }
     }
 }
