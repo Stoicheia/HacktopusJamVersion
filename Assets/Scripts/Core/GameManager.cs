@@ -28,16 +28,15 @@ namespace Minigame.Games.Core
         [SerializeField] private MonitorFlyby _flyby;
 
         [SerializeField] private AudioLayersManager _audioLayers;
+        [SerializeField] private PersistentStats _persistent;
 
         private bool _paused;
         private bool _finished;
 
         private void Awake()
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
-
-        public float BestTime { get; set; }
 
         private IEnumerator Start()
         {
@@ -46,7 +45,6 @@ namespace Minigame.Games.Core
             _activeLeaderboardImage.gameObject.SetActive(false);
             
             _finished = false;
-            BestTime = Single.PositiveInfinity;
             _inputs.InputsEnabled = false;
             _startScreen.gameObject.SetActive(true);
             
@@ -140,18 +138,20 @@ namespace Minigame.Games.Core
 
             float finalTime = _minigames.Timer;
             _endScreen.FinalTime = finalTime;
-            if (finalTime < BestTime)
+            if (finalTime < _persistent.BestTime)
             {
-                BestTime = finalTime;
+                _persistent.BestTime = finalTime;
             }
-            _endScreen.BestFinalTime = BestTime;
+            _endScreen.BestFinalTime = _persistent.BestTime;
         }
 
         private IEnumerator StartGameSequence()
         {
             _countdown.gameObject.SetActive(true);
             _countdown.Play("countdown");
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(3f);
+            BeginGame();
+            yield return new WaitForSeconds(0.5f);
             _countdown.gameObject.SetActive(false);
             BeginGame();
             _flyby.Begin();

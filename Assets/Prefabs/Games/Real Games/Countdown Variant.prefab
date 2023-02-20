@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906646933763378577, guid: 15ec0377d8887794bb8cafe392e51397, type: 3}
       propertyPath: m_Name
-      value: Countdown
+      value: Countdown Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971349455629967072, guid: 15ec0377d8887794bb8cafe392e51397, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15ec0377d8887794bb8cafe392e51397, type: 3}

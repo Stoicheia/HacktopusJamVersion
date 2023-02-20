@@ -9,6 +9,9 @@ public class FishSpawner : MonoBehaviour
     public float randomTimer;
     public bool isLeft;
 
+    [SerializeField] private Transform top;
+    [SerializeField] private Transform bottom;
+
     void Start()
     {
         NewRandomTimer(0f, 1f);
@@ -28,7 +31,7 @@ public class FishSpawner : MonoBehaviour
 
     void SpawnFish()
     {
-        GameObject newFish = Instantiate(fishPrefab, new Vector2(this.transform.position.x, this.transform.position.y + Random.Range(-0.5f, 0.5f)), Quaternion.identity);
+        GameObject newFish = Instantiate(fishPrefab, new Vector2(this.transform.position.x, Random.Range(bottom.position.y, top.position.y)), Quaternion.identity);
         if(isLeft)
         {
             newFish.GetComponent<Fish>().fishSpeed = -0.9f;

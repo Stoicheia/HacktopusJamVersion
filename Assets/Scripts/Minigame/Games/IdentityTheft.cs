@@ -22,19 +22,22 @@ namespace Minigame.Games
         private List<IdentityElement> _currentlySelected;
         private List<IdentityElement> _correct;
 
+        private bool _acceptingInputs;
+
         protected override void Start()
         {
             base.Start();
             GenerateCorrect();
             _target.Load(_correct);
             _correctGraphic.gameObject.SetActive(false);
+            _acceptingInputs = true;
         }
 
         private void Update()
         {
             foreach (var o in _options)
             {
-                if (_inputs.GetKeyDown(o.Key))
+                if (_inputs.GetKeyDown(o.Key) && _acceptingInputs)
                 {
                     o.Toggle();
                 }
@@ -44,7 +47,7 @@ namespace Minigame.Games
             if (correct >= 1)
             {
                 SetProgress(0.99f);
-                StartCoroutine(WinSequence(0.75f));
+                StartCoroutine(WinSequence(0.9f));
             }
             else
             {
@@ -63,6 +66,7 @@ namespace Minigame.Games
 
         private IEnumerator WinSequence(float f)
         {
+            _acceptingInputs = false;
             _correctGraphic.gameObject.SetActive(true);
             yield return new WaitForSeconds(f);
             SetProgress(1.0f);

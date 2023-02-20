@@ -15,24 +15,24 @@ namespace Minigame.Games
         public bool isAlive;
 
         private float endLocation => endObject.position.y;
+        private float _progression;
         protected override void Start()
         {
             base.Start();
             startPos = transform.position;
-            endPos = endObject.position;
+            endPos = new Vector2(startPos.x, endObject.position.y);
             isAlive = true;
         }
         private void Update()
         {
             if(isAlive == true)
             {
-                float currentDistance = transform.position.y - endPos.y;
-                float endDistance = startPos.y - endObject.position.y;
-                SetProgress((float) 1 - (currentDistance / endDistance));
                 if (Input.GetKey(_pressKey))
                 {
-                    transform.Translate(Vector2.down * (Time.deltaTime * rodSpeed));
+                    _progression += rodSpeed * Time.deltaTime;
+                    transform.position = Vector2.Lerp(startPos, endPos, _progression);
                 }
+                SetProgress((float) _progression);
             }
             
         }
