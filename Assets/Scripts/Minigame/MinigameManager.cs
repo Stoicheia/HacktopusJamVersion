@@ -11,6 +11,7 @@ namespace Minigame
     {
         public static Action<Minigame> OnLoad;
         public static Action<Minigame> OnUnload;
+        public static Action<Minigame> OnComplete;
         
         [SerializeField] private List<GameLayout> _layouts;
         [SerializeField] private List<Minigame> _gamePrefabs;
@@ -134,6 +135,7 @@ namespace Minigame
             if (won)
             {
                 gl.TransitionOutWin();
+                OnComplete?.Invoke(gameInstance.Prefab);
             }
             else
             {

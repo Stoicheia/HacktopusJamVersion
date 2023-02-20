@@ -1157,7 +1157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4.600067}
+  m_AnchoredPosition: {x: 0, y: 4.6000977}
   m_SizeDelta: {x: 146.53, y: 46.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &107528700
@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 4
 --- !u!82 &111261880
 AudioSource:
@@ -1331,10 +1331,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 75fa389bfaa44ec4e864b6a51f2906d9, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1452,7 +1452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 17.3, y: -21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.66734}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66713}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &114510059
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 7
 --- !u!82 &152481194
 AudioSource:
@@ -1781,10 +1781,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3c91e735569004a48912f63005475ac2, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2164,7 +2164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863150171567450718, guid: 57b96ce7604af31499a3120c02c52a27, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 107.66734
+      value: 107.66713
       objectReference: {fileID: 0}
     - target: {fileID: 1863150171567450718, guid: 57b96ce7604af31499a3120c02c52a27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2268,11 +2268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863150172674697239, guid: 57b96ce7604af31499a3120c02c52a27, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -117.720215
+      value: -117.72009
       objectReference: {fileID: 0}
     - target: {fileID: 1863150172674697239, guid: 57b96ce7604af31499a3120c02c52a27, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.0825806
+      value: 3.0826416
       objectReference: {fileID: 0}
     - target: {fileID: 1863150172839957403, guid: 57b96ce7604af31499a3120c02c52a27, type: 3}
       propertyPath: m_Camera
@@ -4876,7 +4876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 6
 --- !u!82 &439332555
 AudioSource:
@@ -4889,10 +4889,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 42a5c5725b0e8c64b9e0417db1bf4670, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6852,7 +6852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 2
 --- !u!82 &621754142
 AudioSource:
@@ -6865,10 +6865,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 149bc8a49ac3d4a4cbb8c916498b714b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7342,7 +7342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 1
 --- !u!82 &650711593
 AudioSource:
@@ -7355,10 +7355,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b00b3bce48832c84099d242ec309d473, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7485,7 +7485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 3
 --- !u!82 &667211245
 AudioSource:
@@ -7498,10 +7498,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29b9957de97ec4149a056fdb0fcbda28, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7628,7 +7628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 5
 --- !u!82 &668708972
 AudioSource:
@@ -7641,10 +7641,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: adb3b159a5c1cad4ca037e7581fa113e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9410,7 +9410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 17.3, y: -21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.66734}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66713}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &796834462
@@ -9520,7 +9520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 1
 --- !u!82 &807338234
 AudioSource:
@@ -9533,10 +9533,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3b04d2e2c6926cd4d9d4fe89082bb812, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10700,7 +10700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4.600067}
+  m_AnchoredPosition: {x: 0, y: 4.6000977}
   m_SizeDelta: {x: 146.53, y: 46.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &981683607
@@ -11085,7 +11085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 4
 --- !u!82 &1035441630
 AudioSource:
@@ -11098,10 +11098,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0ac36da04d04f9b48989aed4b6505713, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -11270,7 +11270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 3
 --- !u!82 &1054818484
 AudioSource:
@@ -11283,10 +11283,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e664c04623006ae438887603f8f044ad, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -14251,7 +14251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4.600067}
+  m_AnchoredPosition: {x: 0, y: 4.6000977}
   m_SizeDelta: {x: 146.53, y: 46.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319975212
@@ -15614,7 +15614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 17.3, y: -21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.66734}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66713}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &1508261946
@@ -16350,7 +16350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 5
 --- !u!82 &1574495788
 AudioSource:
@@ -16363,10 +16363,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ed2948f2f942aa04ba9002247329f8b5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -16484,7 +16484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -6.3099976}
+  m_AnchoredPosition: {x: 0, y: -6.3099365}
   m_SizeDelta: {x: 146.53, y: 58.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1581407182
@@ -17041,7 +17041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: -1
 --- !u!82 &1637811107
 AudioSource:
@@ -17054,10 +17054,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f418d12c354b1ad49b9a2dbeb38d8d69, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -18542,7 +18542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 2
 --- !u!82 &1816080507
 AudioSource:
@@ -18555,10 +18555,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 017ed62d078195f478d5fc835b63ecc7, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -19192,7 +19192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 0
 --- !u!82 &1871388122
 AudioSource:
@@ -19205,10 +19205,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a95b7439a27a40e44a16836dc40e2a36, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -19486,7 +19486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 7
 --- !u!82 &1893339474
 AudioSource:
@@ -19499,10 +19499,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2dddb4ce196f616458feebe41abcae43, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -19772,7 +19772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 17.3, y: -21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.66734}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66713}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &1905648432
@@ -20116,6 +20116,7 @@ MonoBehaviour:
   _activeLeaderboardImage: {fileID: 137404442}
   _inactiveLeaderboardImage: {fileID: 568680865}
   _flyby: {fileID: 1980405537}
+  _audioLayers: {fileID: 837088407}
 --- !u!4 &2020919926
 Transform:
   m_ObjectHideFlags: 0
@@ -20167,7 +20168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4.600067}
+  m_AnchoredPosition: {x: 0, y: 4.6000977}
   m_SizeDelta: {x: 146.53, y: 46.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2026894951
@@ -20790,7 +20791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 0
 --- !u!82 &2057457166
 AudioSource:
@@ -20803,10 +20804,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1efd8c97185ff1b40b0601baec0fe11e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -20925,7 +20926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 17.3, y: -21.4, z: -7.7}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.72998, y: 107.66734}
+  m_AnchoredPosition: {x: -39.72998, y: 107.66713}
   m_SizeDelta: {x: -904.93, y: -472.87}
   m_Pivot: {x: 0.99999994, y: 0.000000029802322}
 --- !u!114 &2064182633
@@ -21351,7 +21352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379dbdd5f770401badd4a3cd83a2e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeStrength: 5
+  _fadeStrength: 0.53
   _id: 6
 --- !u!82 &2108215485
 AudioSource:
@@ -21364,10 +21365,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: db74343f97c77084cb15ed116bdadaa4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

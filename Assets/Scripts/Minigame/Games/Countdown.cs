@@ -22,6 +22,10 @@ namespace Minigame.Games
 
         public RectTransform timeOverlay;
 
+        public Text finalCdText;
+        public float finalTiming = 1.6f;
+        private float finalTimer = 1.6f;
+
         private void Start()
         {
             timeOverlay.gameObject.SetActive(false);
@@ -29,9 +33,13 @@ namespace Minigame.Games
             bgRend.color = countdownColor;
             isListening = false;
             SetProgress((float)completion);
+            finalCdText.gameObject.SetActive(false);
+            finalTimer = finalTiming;
         }
         private void Update()
         {
+            if (isListening) finalTimer -= Time.deltaTime;
+            finalCdText.text = $"{finalTimer : 0.0}s";
             if(isListening == false)
             {
                 if(Input.GetKeyDown(_pressKey))
@@ -87,13 +95,14 @@ namespace Minigame.Games
 
         IEnumerator pressKeyWindow()
         {
+            finalCdText.gameObject.SetActive(true);
             timeOverlay.gameObject.SetActive(true);
             bgRend.color = pressKeyColour;
             timerText.color = pressKeyColour;
             downloadingText.color = pressKeyColour;
             tutorialText.color = pressKeyColour;
             isListening = true;
-            yield return new WaitForSeconds(1.6f);
+            yield return new WaitForSeconds(finalTiming);
             SetProgress((float)0);
             Fail();
         }

@@ -18,31 +18,28 @@ namespace Minigame.Games.Audio
             {
                 _idToLayer[l.Id] = l;
             }
-            foreach (var player in _layers)
-            {
-                if(player.Id < 0) player.Unmute();
-                else player.Mute();
-            }
+            
         }
 
         private void OnEnable()
         {
-            MinigameManager.OnLoad += HandleMinigameLoad;
-            MinigameManager.OnUnload += HandleMinigameUnload;
+            MinigameManager.OnComplete += HandleMinigameWin;
         }
 
         private void OnDisable()
         {
-            MinigameManager.OnLoad -= HandleMinigameLoad;
-            MinigameManager.OnUnload -= HandleMinigameUnload;
+            MinigameManager.OnComplete -= HandleMinigameWin;
         }
 
-        private void Start()
+        public void Initialise()
         {
-            
+            foreach (var player in _layers)
+            {
+                player.Play(player.Id < 0);
+            }
         }
 
-        private void HandleMinigameLoad(Minigame game)
+        private void HandleMinigameWin(Minigame game)
         {
             int gameId = game.TypeID;
             if (!_idToLayer.ContainsKey(gameId))
@@ -51,17 +48,6 @@ namespace Minigame.Games.Audio
                 return;
             }
             _idToLayer[gameId].Unmute();
-        }
-
-        private void HandleMinigameUnload(Minigame game)
-        {
-            int gameId = game.TypeID;
-            if (!_idToLayer.ContainsKey(gameId))
-            {
-                Debug.LogWarning($"No music associated with game id {gameId}");
-                return;
-            }
-            _idToLayer[gameId].Mute();
         }
     }
 }

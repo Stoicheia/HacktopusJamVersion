@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Animations;
 using DG.Tweening;
 using LootLocker.Requests;
+using Minigame.Games.Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,8 @@ namespace Minigame.Games.Core
         [SerializeField] private Image _activeLeaderboardImage;
         [SerializeField] private Image _inactiveLeaderboardImage;
         [SerializeField] private MonitorFlyby _flyby;
+
+        [SerializeField] private AudioLayersManager _audioLayers;
 
         private bool _paused;
         private bool _finished;
@@ -49,8 +52,9 @@ namespace Minigame.Games.Core
             
             bool done = false;
 
+            _audioLayers.Initialise();
             yield return new WaitForSeconds(0.1f);
-            
+
             LootLockerSDKManager.StartGuestSession((response) => {
                 if (response.success) {
                     PlayerPrefs.SetString("PlayerID", response.player_id.ToString());

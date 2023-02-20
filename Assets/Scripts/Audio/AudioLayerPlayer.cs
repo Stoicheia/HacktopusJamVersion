@@ -8,7 +8,7 @@ namespace Minigame.Games.Audio
     {
         private AudioSource _audio;
         private float _targetVolume;
-        [SerializeField] [Range(0.3f, 30)] private float _fadeStrength;
+        [SerializeField] [Range(0.1f, 10)] private float _fadeStrength;
         [SerializeField] private int _id;
 
         public int Id => _id;
@@ -32,18 +32,20 @@ namespace Minigame.Games.Audio
         public void Play(bool withVolume)
         {
             _audio.Play();
-            if(withVolume) Unmute();
-            else Mute();
+            if(withVolume) Unmute(true);
+            else Mute(true);
         }
 
-        public void Mute()
+        public void Mute(bool force = false)
         {
             Volume = 0;
+            if (force) _audio.volume = 0;
         }
 
-        public void Unmute()
+        public void Unmute(bool force = false)
         {
             Volume = 1;
+            if (force) _audio.volume = 1;
         }
 }
 }
