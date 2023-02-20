@@ -9,9 +9,9 @@ namespace Minigame.Games.Audio
         private AudioSource _audio;
         private float _targetVolume;
         [SerializeField] [Range(0.3f, 30)] private float _fadeStrength;
-        [SerializeField] private MusicLayerName _name;
+        [SerializeField] private int _id;
 
-        public MusicLayerName Name => _name;
+        public int Id => _id;
 
         public float Volume
         {
