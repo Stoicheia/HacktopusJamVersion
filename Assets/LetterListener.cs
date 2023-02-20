@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Minigame.Games
 {
     public class LetterListener : MinigameGameplay
     {
+        private static LetterListener ACTIVE_LISTENER;
+        private static bool TRANSFER_LOCK;
+        
         public List<LetterDecider> letters = new List<LetterDecider>();
         public bool isListening;
         public List<char> selectedString;
@@ -18,8 +22,17 @@ namespace Minigame.Games
         private List<KeyCode> _listenToTheseKeycodes;
         public AudioSource typingSource;
 
+        private bool _ended;
+
+        private bool _active => ACTIVE_LISTENER == this;
+
+        [SerializeField] private Image _activeIndicator;
+        [SerializeField] private Color _activeColor;
+        [SerializeField] private Color _inactiveColor;
+
         protected override void Start()
         {
+            _ended = false;
             base.Start();
             isListening = false;
             selectedString = null;
@@ -42,6 +55,11 @@ namespace Minigame.Games
 
         void Update()
         {
+            _activeIndicator.color = ACTIVE_LISTENER == this ? _activeColor : _inactiveColor;
+            if (!_ended && ACTIVE_LISTENER == null && !TRANSFER_LOCK)
+            {
+                StartCoroutine(TransferOwnership(2));
+            }
             if(letters.Capacity > 0)
             {
                 if(letters[0].selectedLetter != null && selectedString == null)
@@ -51,7 +69,7 @@ namespace Minigame.Games
             }
 
 
-            if(isListening == true)
+            if(isListening && _active)
             {
                 countdown -= Time.deltaTime/10;
                 SetProgress(countdown);
@@ -70,6 +88,7 @@ namespace Minigame.Games
                             completion += 1f;
                             if(completion == 3f)
                             {
+                                Defer();
                                 SetProgress(1f);
                             }
                         }
@@ -97,8 +116,15 @@ namespace Minigame.Games
             isListening = true;
         }
 
+        private void Defer()
+        {
+            ACTIVE_LISTENER = null;
+            _ended = true;
+        }
+
         private IEnumerator FailSequence(float s)
         {
+            Defer();
             yield return new WaitForSeconds(s);
             Fail();
         }
@@ -107,6 +133,17 @@ namespace Minigame.Games
         {
             yield return new WaitForSeconds(s);
             Instructional.text = "PRESS IN ORDER";
+        }
+
+        private IEnumerator TransferOwnership(int frames)
+        {
+            TRANSFER_LOCK = true;
+            for (int i = 0; i < frames; i++)
+            {
+                yield return null;
+            }
+            TRANSFER_LOCK = false;
+            ACTIVE_LISTENER = this;
         }
     }
 }

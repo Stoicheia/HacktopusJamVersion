@@ -157,12 +157,12 @@ namespace Minigame.Games.Core
             _started = true;
             _countdown.gameObject.SetActive(true);
             _countdown.Play("countdown");
+            _flyby.Begin();
             yield return new WaitForSeconds(3f);
             BeginGame();
             yield return new WaitForSeconds(0.5f);
             _countdown.gameObject.SetActive(false);
             BeginGame();
-            _flyby.Begin();
         }
     }
 }
