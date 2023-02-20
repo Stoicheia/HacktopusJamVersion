@@ -8,6 +8,7 @@ namespace Minigame
     public class GameLayout : MonoBehaviour
     {
         public static event Action<GameLayout> OnRequestLoad;
+        public static event Action<GameLayout, Minigame> OnRequestLoadRequested;
         private bool _isFree;
         public bool IsFree
         {
@@ -38,6 +39,7 @@ namespace Minigame
         [SerializeField] private SkewedImage _backScreen;
 
         [SerializeField] private MinigameTransitionScreen _transitionIn;
+        [SerializeField] private MinigameTransitionScreen _transitionInSpecial;
         [SerializeField] private MinigameTransitionScreen _transitionOutWin;
         [SerializeField] private MinigameTransitionScreen _transitionOutFail;
         [SerializeField] private RectTransform _freezeScreen;
@@ -54,7 +56,7 @@ namespace Minigame
 
         private void Update()
         {
-            if (_inputs.GetKeyDown(_loadKey) && IsFree && !PermaFreeze)
+            if (_inputs.GetKeyDownLocked(_loadKey) && IsFree && !PermaFreeze)
             {
                 TransitionIn();
             }
@@ -65,7 +67,7 @@ namespace Minigame
             _transitionIn.OnEnd += LoadGame;
             _transitionOutFail.OnEnd += Free;
             _transitionOutWin.OnEnd += Free;
-            
+            if(_transitionInSpecial != null) _transitionInSpecial.OnEndRequested += LoadGameRequested;
             _transitionIn.gameObject.SetActive(false);
             _transitionOutFail.gameObject.SetActive(false);
             _transitionOutWin.gameObject.SetActive(false);
@@ -76,11 +78,18 @@ namespace Minigame
             _transitionIn.OnEnd -= LoadGame;
             _transitionOutFail.OnEnd -= Free;
             _transitionOutWin.OnEnd -= Free;
+            if(_transitionInSpecial != null) _transitionInSpecial.OnEndRequested -= LoadGameRequested;
         }
 
         public void TransitionIn()
         {
             _transitionIn.Play();
+            IsFree = false;
+        }
+
+        public void TransitionInSpecial(Minigame m)
+        {
+            _transitionInSpecial.Play(m);
             IsFree = false;
         }
 
@@ -107,6 +116,11 @@ namespace Minigame
         private void LoadGame()
         {
             OnRequestLoad?.Invoke(this);
+        }
+
+        private void LoadGameRequested(Minigame m)
+        {
+            OnRequestLoadRequested?.Invoke(this, m);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Minigame.Games
         private void Update()
         {
             _player.GameScale = _scale;
-            if (_inputs.GetKeyDown(_jumpKey))
+            if (_inputs.GetKeyDown(_jumpKey, _minigame))
             {
                 _player.Jump();
             }

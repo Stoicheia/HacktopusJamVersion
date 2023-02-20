@@ -25,7 +25,7 @@ namespace Minigame.Games
             if(randomTimer <= 0)
             {
                 _img.color = new Color32(0, 82, 15, 255);
-                if(_inputs.GetKeyDown(_pressKey))
+                if(_inputs.GetKeyDown(_pressKey, _minigame))
                 {
                     SetProgress(1f);
                 }

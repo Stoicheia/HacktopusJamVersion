@@ -1211,7 +1211,7 @@ MonoBehaviour:
   startPos: {x: 0, y: 0}
   endPos: {x: 0, y: 0}
   endObject: {fileID: 5041804018352296149}
-  rodSpeed: 0.7
+  rodSpeed: 0.55
   isAlive: 0
 --- !u!61 &3721035177970713237
 BoxCollider2D:

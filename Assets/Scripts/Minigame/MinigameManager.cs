@@ -1,12 +1,20 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using Minigame.Games.Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Minigame
 {
+    [Serializable]
+    public struct GameRoundPair
+    {
+        public Minigame Game;
+        public int AfterRound;
+    }
     public class MinigameManager : MonoBehaviour
     {
         public static Action<Minigame> OnLoad;
@@ -15,13 +23,18 @@ namespace Minigame
         
         [SerializeField] private List<GameLayout> _layouts;
         [SerializeField] private List<Minigame> _gamePrefabs;
+        [SerializeField] private List<GameRoundPair> _forcedGamePrefabs;
+        [SerializeField] private GameLayout _forcingLayout;
         [SerializeField] private Camera _camera;
         [SerializeField] private AudioSource _audioSuccess;
         [SerializeField] private AudioSource _audioFail;
+        [SerializeField] private RectTransform _specialCover;
 
 
         private Dictionary<Minigame, bool> _gameCompleted;
+        private Dictionary<Minigame, bool> _gameCompletedNormal;
         private Dictionary<Minigame, bool> _gameLoaded;
+        private List<Minigame> _specialGames;
         private Dictionary<Minigame, GameLayout> _gameToLayout;
         public Dictionary<Minigame, bool> GameCompleted => _gameCompleted;
         public int MinigamesCompleted => GameCompleted.Count(x => x.Value);
@@ -30,19 +43,29 @@ namespace Minigame
         private float _timer;
         private bool _isPlaying;
 
+        private InputPoller _inputs;
+
         public float Timer => _timer;
 
         public bool Finished => MinigamesCompleted == MinigamesCount;
 
         private void OnEnable()
         {
+            _specialCover.gameObject.SetActive(false);
             _gameCompleted = new Dictionary<Minigame, bool>();
             _gameLoaded = new Dictionary<Minigame, bool>();
             _gameToLayout = new Dictionary<Minigame, GameLayout>();
+            _specialGames = new List<Minigame>();
             foreach (var g in _gamePrefabs)
             {
                 _gameCompleted[g] = false;
                 _gameLoaded[g] = false;
+            }
+            foreach (var g in _forcedGamePrefabs)
+            {
+                _gameCompleted[g.Game] = false;
+                _gameLoaded[g.Game] = false;
+                _specialGames.Add(g.Game);
             }
 
             foreach (var l in _layouts)
@@ -53,6 +76,7 @@ namespace Minigame
             Minigame.OnComplete += HandleComplete;
             Minigame.OnFail += HandleFail;
             GameLayout.OnRequestLoad += TryLoadRandomGame;
+            GameLayout.OnRequestLoadRequested += TryLoadRequested;
         }
         
         private void OnDisable()
@@ -60,11 +84,12 @@ namespace Minigame
             Minigame.OnComplete -= HandleComplete;
             Minigame.OnFail -= HandleFail;
             GameLayout.OnRequestLoad -= TryLoadRandomGame;
+            GameLayout.OnRequestLoadRequested -= TryLoadRequested;
         }
 
         private void Start()
         {
-            
+            _inputs = FindObjectOfType<InputPoller>();
         }
 
         public void Initialise()
@@ -82,6 +107,41 @@ namespace Minigame
         private void Update()
         {
             if (_isPlaying) _timer += Time.deltaTime;
+            foreach (var g in _forcedGamePrefabs)
+            {
+                var roundToSpawn = g.AfterRound;
+                var game = g.Game;
+
+                if ((!_gameCompleted[game] && !_gameLoaded[game]) && MinigamesCompleted > roundToSpawn)
+                {
+                    ForceLoadGame(_forcingLayout, game);
+                }
+            }
+        }
+
+        private void TryLoadRequested(GameLayout gameLayout, Minigame minigame)
+        {
+            if(minigame != null)
+                LoadGame(minigame, gameLayout);
+        }
+
+        public void ForceLoadGame(GameLayout layout, Minigame game)
+        {
+            StartCoroutine(ForceLoadGameSequence(layout, game));
+        }
+
+        private IEnumerator ForceLoadGameSequence(GameLayout layout, Minigame game)
+        {
+            yield return new WaitWhile(() => !layout.IsFree && !layout.PermaFreeze);
+            if (!_gameCompleted[game])
+            {
+                if (_specialGames.Contains(game))
+                {
+                    _inputs.InputOwner = game;
+                    _specialCover.gameObject.SetActive(true);
+                }
+                _forcingLayout.TransitionInSpecial(game);
+            }
         }
 
         public void TryLoadRandomGame(GameLayout layout)
@@ -134,6 +194,11 @@ namespace Minigame
 
         private void UnloadGame(Minigame gameInstance, bool won)
         {
+            if (_specialGames.Contains(gameInstance.Prefab))
+            {
+                _inputs.InputOwner = null;
+                _specialCover.gameObject.SetActive(false);
+            }
             var gl = _gameToLayout[gameInstance];
             if (won)
             {
@@ -152,7 +217,9 @@ namespace Minigame
 
         private Minigame GetRandomUnfinishedGame()
         {
-            List<Minigame> unfinished = _gameCompleted.Where(x => !x.Value && !_gameLoaded[x.Key])
+            List<Minigame> unfinished = _gameCompleted.Where(x => !x.Value 
+                                                                  && !_gameLoaded[x.Key] 
+                                                                  && !_specialGames.Contains(x.Key))
                 .Select(x => x.Key).ToList();
             if (unfinished.Count == 0) return null;
             int rng = Random.Range(0, unfinished.Count);

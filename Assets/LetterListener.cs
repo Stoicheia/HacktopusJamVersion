@@ -56,6 +56,7 @@ namespace Minigame.Games
         void Update()
         {
             _activeIndicator.color = ACTIVE_LISTENER == this ? _activeColor : _inactiveColor;
+            if (TRANSFER_LOCK) _activeIndicator.color = _activeColor;
             if (!_ended && ACTIVE_LISTENER == null && !TRANSFER_LOCK)
             {
                 StartCoroutine(TransferOwnership(2));
@@ -75,7 +76,7 @@ namespace Minigame.Games
                 SetProgress(countdown);
                 foreach(KeyCode vKey in _listenToTheseKeycodes)
                 {
-                    if(_inputs.GetKeyDown(vKey))
+                    if(_inputs.GetKeyDown(vKey, _minigame))
                     {
                         if(vKey.ToString() == selectedString[0].ToString())
                         {

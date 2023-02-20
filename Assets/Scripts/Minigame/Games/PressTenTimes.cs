@@ -20,7 +20,7 @@ namespace Minigame.Games
         }
         private void Update()
         {
-            if (_inputs.GetKeyDown(_pressKey))
+            if (_inputs.GetKeyDown(_pressKey, _minigame))
             {
                 _currentPresses++;
                 SetProgress((float)_currentPresses/_targetPresses);

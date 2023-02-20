@@ -38,7 +38,7 @@ namespace Minigame.Games
         {
             foreach (var o in _options)
             {
-                if (_inputs.GetKeyDown(o.Key) && _acceptingInputs)
+                if (_inputs.GetKeyDown(o.Key, _minigame) && _acceptingInputs)
                 {
                     o.Toggle();
                     _audio.PlayOneShot(_audio.clip);

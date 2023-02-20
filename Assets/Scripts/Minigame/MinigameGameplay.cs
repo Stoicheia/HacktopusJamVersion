@@ -6,7 +6,7 @@ namespace Minigame
 {
     public abstract class MinigameGameplay : MonoBehaviour
     {
-        private Minigame _minigame;
+        protected Minigame _minigame;
         protected float _scale => _minigame.Scale;
 
         protected InputPoller _inputs;
