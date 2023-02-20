@@ -7,7 +7,7 @@ public class LetterDecider : MonoBehaviour
 {
 
     public Text text;
-    char[] acceptableLetters = "zxcvbnm".ToCharArray();
+    char[] acceptableLetters = "ZXCVBNM".ToCharArray();
     public string selectedLetter;
 
     void Start()

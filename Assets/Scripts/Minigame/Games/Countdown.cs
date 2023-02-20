@@ -20,8 +20,11 @@ namespace Minigame.Games
         private Color pressKeyColour = Color.green;
         private bool isListening;
 
+        public RectTransform timeOverlay;
+
         private void Start()
         {
+            timeOverlay.gameObject.SetActive(false);
             bgRend = bg.GetComponent<SkewedImage>();
             bgRend.color = countdownColor;
             isListening = false;
@@ -49,6 +52,12 @@ namespace Minigame.Games
                 timeRemaining -= Time.deltaTime;
                 completion -= Time.deltaTime/10;
                 SetProgress((float)completion);
+                var dots = "";
+                for (int i = 0; i < timeRemaining % 3; i++)
+                {
+                    dots += ".";
+                }
+                tutorialText.text = $"WAIT{dots}";
             }
             else
             {
@@ -59,6 +68,7 @@ namespace Minigame.Games
 
             if(timeRemaining == 1)
             {
+                tutorialText.text = "PRESS L";
                 StartCoroutine(pressKeyWindow());
             }
         }
@@ -77,12 +87,13 @@ namespace Minigame.Games
 
         IEnumerator pressKeyWindow()
         {
+            timeOverlay.gameObject.SetActive(true);
             bgRend.color = pressKeyColour;
             timerText.color = pressKeyColour;
             downloadingText.color = pressKeyColour;
             tutorialText.color = pressKeyColour;
             isListening = true;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1.6f);
             SetProgress((float)0);
             Fail();
         }

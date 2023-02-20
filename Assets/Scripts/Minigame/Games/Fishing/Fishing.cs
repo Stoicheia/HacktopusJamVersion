@@ -10,14 +10,16 @@ namespace Minigame.Games
 
         public Vector2 startPos;
         public Vector2 endPos;
-        public float endDistance;
+        public RectTransform endObject;
         public float rodSpeed;
         public bool isAlive;
+
+        private float endLocation => endObject.position.y;
         protected override void Start()
         {
             base.Start();
             startPos = transform.position;
-            endPos = new Vector2(startPos.x, startPos.y - endDistance);
+            endPos = endObject.position;
             isAlive = true;
         }
         private void Update()
@@ -25,6 +27,7 @@ namespace Minigame.Games
             if(isAlive == true)
             {
                 float currentDistance = transform.position.y - endPos.y;
+                float endDistance = startPos.y - endObject.position.y;
                 SetProgress((float) 1 - (currentDistance / endDistance));
                 if (Input.GetKey(_pressKey))
                 {

@@ -132,7 +132,7 @@ namespace Minigame.Games.Core
         {
             _countdown.gameObject.SetActive(true);
             _countdown.Play("countdown");
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(3.5f);
             _countdown.gameObject.SetActive(false);
             BeginGame();
         }

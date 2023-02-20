@@ -66,7 +66,7 @@ namespace Minigame.Games
                         else
                         {
                             letters[0].text.color = Color.red;
-                            letters[0].text.text = vKey.ToString();
+                            letters[0].text.text = vKey.ToString().ToUpper();
                             isListening = false;
                             StartCoroutine(FailSequence(0.4f));
                         }
@@ -91,7 +91,7 @@ namespace Minigame.Games
         private IEnumerator StartSequence(float s)
         {
             yield return new WaitForSeconds(s);
-            Instructional.text = "Press in order!";
+            Instructional.text = "PRESS IN ORDER";
         }
     }
 }
