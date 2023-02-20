@@ -1212,7 +1212,7 @@ MonoBehaviour:
   startPos: {x: 0, y: 0}
   endPos: {x: 0, y: 0}
   endObject: {fileID: 5041804018352296149}
-  rodSpeed: 0.55
+  rodSpeed: 0.45
   isAlive: 0
   _spawners:
   - {fileID: 1887939171373697415}
