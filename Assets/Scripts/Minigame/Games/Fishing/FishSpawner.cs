@@ -31,7 +31,8 @@ public class FishSpawner : MonoBehaviour
 
     void SpawnFish()
     {
-        GameObject newFish = Instantiate(fishPrefab, new Vector2(this.transform.position.x, Random.Range(bottom.position.y, top.position.y)), Quaternion.identity);
+        GameObject newFish = Instantiate(fishPrefab, transform);
+        newFish.transform.position = new Vector2(this.transform.position.x, Random.Range(bottom.position.y, top.position.y));
         if(isLeft)
         {
             newFish.GetComponent<Fish>().fishSpeed = -0.9f;

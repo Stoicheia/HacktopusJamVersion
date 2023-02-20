@@ -30,10 +30,23 @@ namespace Minigame.Games
                 if (_ptr >= _activeSentence.Length) break;
                 current = _activeSentence[_ptr];
             }
+
+            if (current == ' ')
+            {
+                _ptr++;
+            }
             
             SetProgress((float)_ptr / _activeSentence.Length);
 
-            _textArea.text = $"<color=green>{_activeSentence.Substring(0, _ptr)}</color><color=red>{_activeSentence[_ptr]}</color>{_activeSentence.Substring(_ptr+1)}";
+            if (_ptr >= _activeSentence.Length)
+            {
+                _textArea.text = "COMPLETE!";
+            }
+            else
+            {
+                _textArea.text =
+                    $"<color=green>{_activeSentence.Substring(0, _ptr)}</color><color=red>{_activeSentence[_ptr]}</color>{_activeSentence.Substring(_ptr + 1)}";
+            }
         }
         
     }
