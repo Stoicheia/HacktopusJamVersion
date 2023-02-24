@@ -31,6 +31,7 @@ namespace Minigame.Games.Core
         [SerializeField] private PersistentStats _persistent;
         [SerializeField] private AudioSource _audioSettings;
         [SerializeField] private AudioSource _audioCountdown;
+        [SerializeField] private List<AudioSource> pausedSources = new List<AudioSource>();
 
         private bool _paused;
         private bool _finished;
@@ -79,7 +80,7 @@ namespace Minigame.Games.Core
             {
                 BeginGameSequence();
             }
-            if (_inputs.GetKeyDownLockedPure(_restartButton) && !_finished)
+            if (_inputs.GetKeyDownLockedPure(_restartButton) && !_finished && _paused)
             {
                 Restart();
             }
@@ -89,10 +90,11 @@ namespace Minigame.Games.Core
                 {
                     if (!_paused)
                     {
-                        _audioSettings.PlayOneShot(_audioSettings.clip);
                         _pauseMenu.gameObject.SetActive(true);
                         _paused = true;
                         _inputs.InputsEnabled = false;
+                        PauseCurrentAudio();
+                        _audioSettings.PlayOneShot(_audioSettings.clip);
                         Time.timeScale = 0;
                     }
                     else
@@ -101,6 +103,7 @@ namespace Minigame.Games.Core
                         _paused = false;
                         _inputs.InputsEnabled = true;
                         Time.timeScale = 1;
+                        ResumeAudio();
                     }
 
                     break;
@@ -155,6 +158,29 @@ namespace Minigame.Games.Core
                 _persistent.BestTime = finalTime;
             }
             _endScreen.BestFinalTime = _persistent.BestTime;
+        }
+
+        public void PauseCurrentAudio()
+        {
+            AudioSource[] sources = GameObject.FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+            foreach(AudioSource currentSource in sources)
+            {
+                if(currentSource.isPlaying)
+                {
+                    currentSource.Pause();
+                    pausedSources.Add(currentSource);
+                }
+            }
+        }
+
+        public void ResumeAudio()
+        {
+            AudioSource[] sources = pausedSources.ToArray();
+            foreach(AudioSource source in sources)
+            {
+                source.Play();
+                pausedSources.Remove(source);
+            }
         }
 
         private IEnumerator StartGameSequence()
