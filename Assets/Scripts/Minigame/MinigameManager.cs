@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Minigame.Games.Core;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -32,6 +34,10 @@ namespace Minigame
         [SerializeField] private AudioSource _audioSuccess;
         [SerializeField] private AudioSource _audioFail;
         [SerializeField] private RectTransform _specialCover;
+        
+        
+        [DllImport("__Internal")]
+        private static extern void DispatchEvent(string action, int score);
 
 
         private Dictionary<Minigame, bool> _gameCompleted;
@@ -42,6 +48,8 @@ namespace Minigame
         public Dictionary<Minigame, bool> GameCompleted => _gameCompleted;
         public int MinigamesCompleted => GameCompleted.Count(x => x.Value);
         public int MinigamesCount => _gameCompleted.Count;
+        public float Progress => (float) MinigamesCompleted / MinigamesCount;
+        public int Score => 0;
 
         private float _timer;
         private bool _isPlaying;
@@ -54,6 +62,7 @@ namespace Minigame
 
         private void OnEnable()
         {
+            DispatchEvent("start", 0);
             _specialCover.gameObject.SetActive(false);
             _gameCompleted = new Dictionary<Minigame, bool>();
             _gameLoaded = new Dictionary<Minigame, bool>();
@@ -104,6 +113,7 @@ namespace Minigame
         public float Stop()
         {
             _isPlaying = false;
+            DispatchEvent("finish", Score);
             return _timer;
         }
 
@@ -146,6 +156,8 @@ namespace Minigame
                 }
                 _forcingLayout.TransitionInSpecial(game);
             }
+
+            game.Manager = this;
         }
 
         public void TryLoadRandomGame(GameLayout layout)
@@ -193,6 +205,7 @@ namespace Minigame
             gameInstance.Prefab = game;
             _gameToLayout[gameInstance] = gl;
             _gameLoaded[game] = true;
+            gameInstance.Manager = this;
             OnLoad?.Invoke(game);
         }
 
@@ -236,12 +249,14 @@ namespace Minigame
             _gameCompleted[instance.Prefab] = true;
             UnloadGame(instance, true);
             _audioSuccess.PlayOneShot(_audioSuccess.clip);
+            DispatchEvent("hack", Score);
         }
 
         private void HandleFail(Minigame instance)
         {
             UnloadGame(instance, false);
             _audioFail.PlayOneShot(_audioFail.clip);
+            DispatchEvent("fail", Score);
         }
     }
 }

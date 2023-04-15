@@ -24,7 +24,7 @@ public class LetterDecider : MonoBehaviour
         selectedLetter = acceptableLetters[Random.Range(0, 6)].ToString();
         text.text = selectedLetter;
 
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(1.75f);
 
         if(text.color != Color.green)
         {

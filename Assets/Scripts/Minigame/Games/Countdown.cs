@@ -26,6 +26,9 @@ namespace Minigame.Games
         public float finalTiming = 1.6f;
         private float finalTimer = 1.6f;
 
+        public float RushTime = 3;
+        public float RushThreshold = 0.85f;
+
         private void Start()
         {
             timeOverlay.gameObject.SetActive(false);
@@ -57,8 +60,10 @@ namespace Minigame.Games
 
             if(timeRemaining > 1)
             {
-                timeRemaining -= Time.deltaTime;
-                completion -= Time.deltaTime/10;
+                float rushFactor = 1;
+                if (_minigame.Manager.Progress > RushThreshold) rushFactor = RushTime;
+                timeRemaining -= Time.deltaTime * rushFactor;
+                completion -= Time.deltaTime * rushFactor/10; 
                 SetProgress((float)completion);
                 var dots = "";
                 for (int i = 0; i < timeRemaining % 3; i++)

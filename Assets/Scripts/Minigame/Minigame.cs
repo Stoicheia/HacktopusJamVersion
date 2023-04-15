@@ -45,6 +45,7 @@ namespace Minigame
         [SerializeField] private Image _progressIndicator;
 
         public float Scale;
+        public MinigameManager Manager;
 
         private void Awake()
         {
