@@ -60,9 +60,18 @@ namespace Minigame
 
         public bool Finished => MinigamesCompleted == MinigamesCount;
 
+        public static void Dispatch(string s, int sc)
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            DispatchEvent(s, sc);
+#else
+            Debug.Log($"Dispatching WebGL event {s} with score {sc}");            
+#endif
+        }
+
         private void OnEnable()
         {
-            DispatchEvent("start", 0);
+            Dispatch("start", 0);
             _specialCover.gameObject.SetActive(false);
             _gameCompleted = new Dictionary<Minigame, bool>();
             _gameLoaded = new Dictionary<Minigame, bool>();
@@ -113,7 +122,7 @@ namespace Minigame
         public float Stop()
         {
             _isPlaying = false;
-            DispatchEvent("finish", Score);
+            Dispatch("finish", Score);
             return _timer;
         }
 
@@ -249,14 +258,14 @@ namespace Minigame
             _gameCompleted[instance.Prefab] = true;
             UnloadGame(instance, true);
             _audioSuccess.PlayOneShot(_audioSuccess.clip);
-            DispatchEvent("hack", Score);
+            Dispatch("hack", Score);
         }
 
         private void HandleFail(Minigame instance)
         {
             UnloadGame(instance, false);
             _audioFail.PlayOneShot(_audioFail.clip);
-            DispatchEvent("fail", Score);
+            Dispatch("fail", Score);
         }
     }
 }
