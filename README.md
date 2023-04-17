@@ -1,4 +1,5 @@
-<h1> PLAY NOW AT https://radetzky.itch.io/hacktopus </h1>
+<h1> Hacktopus Jam Version </h1>
+<h2> PLAY NOW AT https://radetzky.itch.io/hacktopus </h2>
 
 🥇 **SpeedJam #1: Developer's Choice! (Out of 119 entries)** 🥇
 
@@ -15,4 +16,4 @@ AlexMoot - Musician
 
 Mint - Artist
 
-Custom font from dafont.com 
+Custom font from dafont.com
