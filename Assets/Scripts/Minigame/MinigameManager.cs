@@ -51,7 +51,7 @@ namespace Minigame
         public float Progress => (float) MinigamesCompleted / MinigamesCount;
         public int Score => 0;
 
-        private float _timer;
+        private float _timer = 240f;
         private bool _isPlaying;
 
         private InputPoller _inputs;
@@ -115,7 +115,7 @@ namespace Minigame
 
         public void Initialise()
         {
-            _timer = 0;
+            _timer = 240f;
             _isPlaying = true;
         }
 
@@ -128,7 +128,7 @@ namespace Minigame
 
         private void Update()
         {
-            if (_isPlaying) _timer += Time.deltaTime;
+            if (_isPlaying) _timer -= Time.deltaTime;
             foreach (var g in _forcedGamePrefabs)
             {
                 var roundToSpawn = g.AfterRound;

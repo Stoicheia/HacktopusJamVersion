@@ -110,7 +110,7 @@ namespace Minigame.Games.Core
                 }
             }
 
-            if (_minigames.Finished && !_finished)
+            if (_minigames.Finished && !_finished || _minigames.Timer <= 0f && !_finished)
             {
                 End();
                 _finished = true;
@@ -151,13 +151,13 @@ namespace Minigame.Games.Core
             _paused = true;
             _inputs.InputsEnabled = false;
 
-            float finalTime = _minigames.Timer;
-            _endScreen.FinalTime = finalTime;
-            if (finalTime < _persistent.BestTime)
-            {
-                _persistent.BestTime = finalTime;
-            }
-            _endScreen.BestFinalTime = _persistent.BestTime;
+            int minigameScore = _minigames.MinigamesCompleted * 100;
+            int timeBonus = (int)_minigames.Timer * 10;
+            int finalScore = minigameScore + timeBonus;
+
+            _endScreen.MinigameScore = minigameScore;
+            _endScreen.TimeBonus = timeBonus;
+            _endScreen.FinalScore = finalScore;
         }
 
         public void PauseCurrentAudio()
